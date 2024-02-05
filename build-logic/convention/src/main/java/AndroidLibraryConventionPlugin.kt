@@ -24,11 +24,6 @@ class AndroidLibraryConventionPlugin : Plugin<Project> {
                 defaultConfig.targetSdk = 33
                 configureFlavors(this)
             }
-
-            val libs = extensions.getByType<VersionCatalogsExtension>().named("libs")
-            dependencies {
-                "coreLibraryDesugaring"(libs.findLibrary("com.android.tools.desugar.jdk").get())
-            }
         }
     }
 }

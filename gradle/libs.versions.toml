@@ -1,30 +1,30 @@
 [versions]
-kotlin-version = "1.9.10"
-agp = "8.0.1"
+kotlin-version = "1.9.22"
+agp = "8.0.2"
 android-application = "8.2.1"
 org-jlleitschuh-gradle-ktlint = "11.3.2"
 androidx-test-ext-junit = "1.1.5"
-lifecycle = "2.6.1"
-navigation = "2.5.3"
+lifecycle = "2.7.0"
+navigation = "2.7.6"
 hilt-android-compiler = "2.48.1"
-coroutine = "1.6.4"
+coroutine = "1.7.2"
 chucker = "3.5.2"
 stetho = "1.6.0"
-core-ktx = "1.10.1"
+core-ktx = "1.12.0"
 junit = "4.13.2"
 androidx-test-ext-junit115 = "1.1.5"
 espresso-core = "3.5.1"
 appcompat = "1.6.1"
-material = "1.9.0"
-ksp = "1.9.10-1.0.13"
-room = "2.6.0"
+material = "1.11.0"
+ksp = "1.9.21-1.0.15"
+room = "2.6.1"
 browser = "1.7.0"
 
 [libraries]
-androidx-compose-bom = "androidx.compose:compose-bom:2023.05.01"
+androidx-compose-bom = "androidx.compose:compose-bom:2024.01.00"
 androidx-compose-material = { module = "androidx.compose.material:material" }
-androidx-compose-material3 = "androidx.compose.material3:material3:1.1.1"
-androidx-compose-activity = "androidx.activity:activity-compose:1.7.2"
+androidx-compose-material3 = "androidx.compose.material3:material3:1.1.2"
+androidx-compose-activity = "androidx.activity:activity-compose:1.8.2"
 androidx-constraintlayout-compose = "androidx.constraintlayout:constraintlayout-compose:1.0.1"
 androidx-compose-ui-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview" }
 androidx-compose-ui-tooling = { module = "androidx.compose.ui:ui-tooling" }
@@ -34,9 +34,9 @@ androidx-compose-ui-test-manifest = { module = "androidx.compose.ui:ui-test-mani
 androidx-compose-animation = { module = "androidx.compose.animation:animation" }
 androidx-compose-animation-graphics = { module = "androidx.compose.animation:animation-graphics" }
 androidx-compose-ui = { module = "androidx.compose.ui:ui" }
-androidx-compose-ui-test-junit4 = "androidx.compose.ui:ui-test-junit4:1.4.3"
+androidx-compose-ui-test-junit4 = "androidx.compose.ui:ui-test-junit4:1.6.0"
 androidx-compose-material-iconsExtended = { group = "androidx.compose.material", name = "material-icons-extended" }
-androidx-core-ktx = "androidx.core:core-ktx:1.10.1"
+androidx-core-ktx = "androidx.core:core-ktx:1.12.0"
 androidx-appcompat = "androidx.appcompat:appcompat:1.6.1"
 androidx-security = "androidx.security:security-crypto:1.0.0"
 androidx-security-ktx = "androidx.security:security-crypto-ktx:1.1.0-alpha06"
@@ -56,9 +56,9 @@ androidx-navigation-ui-ktx = { module = "androidx.navigation:navigation-ui-ktx",
 androidx-core-splashscreen = "androidx.core:core-splashscreen:1.0.1"
 androidx-browser = { group = "androidx.browser", name = "browser", version.ref = "browser" }
 
-androidx-camera-camera2 = "androidx.camera:camera-camera2:1.3.0-beta01"
-androidx-camera-livecycle = "androidx.camera:camera-lifecycle:1.3.0-beta01"
-androidx-camera-camera-view = "androidx.camera:camera-view:1.3.0-beta01"
+androidx-camera-camera2 = "androidx.camera:camera-camera2:1.3.1"
+androidx-camera-livecycle = "androidx.camera:camera-lifecycle:1.3.1"
+androidx-camera-camera-view = "androidx.camera:camera-view:1.3.1"
 
 coil-compose = "io.coil-kt:coil-compose:2.4.0"
 
@@ -77,7 +77,7 @@ jjwt-orgjson = "io.jsonwebtoken:jjwt-orgjson:0.10.7"
 junit = "junit:junit:4.13.2"
 androidx-espresso-core = "androidx.test.espresso:espresso-core:3.5.1"
 mockk = "io.mockk:mockk:1.13.7"
-kotlinx-coroutines-test = "org.jetbrains.kotlinx:kotlinx-coroutines-test:1.4.2"
+kotlinx-coroutines-test = "org.jetbrains.kotlinx:kotlinx-coroutines-test:1.7.1"
 
 datastore = "androidx.datastore:datastore-preferences:1.0.0"
 retrofit2 = "com.squareup.retrofit2:retrofit:2.9.0"
@@ -105,7 +105,7 @@ android-security-sqlcipher = "net.zetetic:android-database-sqlcipher:4.5.0"
 com-google-accompanist-navigation-animation = "com.google.accompanist:accompanist-navigation-animation:0.25.1"
 com-google-accompanist-webview = "com.google.accompanist:accompanist-webview:0.30.1"
 com-google-accompanist-permissions = "com.google.accompanist:accompanist-permissions:0.30.1"
-com-google-code-gson = "com.google.code.gson:gson:2.9.0"
+com-google-code-gson = "com.google.code.gson:gson:2.10"
 
 com-airbnb-lottie = "com.airbnb.android:lottie-compose:6.0.1"
 
@@ -115,7 +115,7 @@ org-tensorflor-lite = "org.tensorflow:tensorflow-lite:2.7.0"
 
 dev-chrisbanes-snapper = "dev.chrisbanes.snapper:snapper:0.3.0"
 
-com-android-tools-desugar-jdk = "com.android.tools:desugar_jdk_libs:2.0.3"
+com-android-tools-desugar-jdk = "com.android.tools:desugar_jdk_libs:2.0.4"
 
 capturable = "dev.shreyaspatil:capturable:1.0.3"
 zxing-core = "com.google.zxing:core:3.5.1"
@@ -128,7 +128,7 @@ retromock = "co.infinum:retromock:1.1.1"
 
 joda-datetime = "net.danlew:android.joda:2.12.5"
 
-firebase-bom = "com.google.firebase:firebase-bom:32.3.1"
+firebase-bom = "com.google.firebase:firebase-bom:32.7.1"
 firebase-analytics-ktx = { module = "com.google.firebase:firebase-analytics-ktx" }
 firebase-messaging-ktx = { module = "com.google.firebase:firebase-messaging-ktx" }
 firebase-crashlytics-ktx = { module = "com.google.firebase:firebase-crashlytics-ktx" }
@@ -145,8 +145,8 @@ org-jlleitschuh-gradle-ktlint = { id = "org.jlleitschuh.gradle.ktlint", version.
 org-jlleitschuh-gradle-ktlint-idea = { id = "org.jlleitschuh.gradle.ktlint-idea", version.ref = "org-jlleitschuh-gradle-ktlint" }
 com-android-library = { id = "com.android.library", version.ref = "agp" }
 org-jetbrains-kotlin-plugin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin-version" }
-google-service = "com.google.gms.google-services:4.3.15"
-firebase-appdistribution-gradle = "com.google.firebase.appdistribution:4.0.0"
+google-service = "com.google.gms.google-services:4.4.0"
+firebase-appdistribution-gradle = "com.google.firebase.appdistribution:4.0.1"
 hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt-android-compiler" }
 hidden-secrets-plugin = "com.klaxit.hiddensecrets:0.2.0"
 firebase-crashlytic-gradle = "com.google.firebase.crashlytics:2.9.9"
