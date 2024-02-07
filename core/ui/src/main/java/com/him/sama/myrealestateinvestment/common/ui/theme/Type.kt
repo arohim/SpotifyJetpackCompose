@@ -1,4 +1,4 @@
-package com.him.sama.myrealestateinvestment.ui.theme
+package com.him.sama.myrealestateinvestment.common.ui.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle

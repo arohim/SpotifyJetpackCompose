@@ -7,9 +7,9 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.navigation.compose.rememberNavController
-import com.him.sama.myrealestateinvestment.ui.navigation.AppNavHost
-import com.him.sama.myrealestateinvestment.ui.theme.BottomBar
-import com.him.sama.myrealestateinvestment.ui.theme.MyRealEstateInvestmentTheme
+import com.him.sama.myrealestateinvestment.navigation.AppNavHost
+import com.him.sama.myrealestateinvestment.navigation.BottomBar
+import com.him.sama.myrealestateinvestment.common.ui.theme.MyRealEstateInvestmentTheme
 
 @Composable
 fun MyRealEstateApp() {

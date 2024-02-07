@@ -1,4 +1,4 @@
-package com.him.sama.myrealestateinvestment.ui.theme
+package com.him.sama.myrealestateinvestment.common.ui.theme
 
 import android.app.Activity
 import android.os.Build

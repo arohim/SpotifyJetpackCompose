@@ -9,7 +9,7 @@ import androidx.compose.runtime.MutableState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
-import com.him.sama.myrealestateinvestment.ui.theme.BottomBar
+import com.him.sama.myrealestateinvestment.navigation.BottomBar
 
 @Composable
 fun BottomNavigation(selectedDestination: MutableState<BottomBar>) {
