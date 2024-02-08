@@ -12,7 +12,6 @@ class AndroidFeatureConventionPlugin : Plugin<Project> {
             pluginManager.apply {
                 apply("myrealestateinvestment.android.library.compose")
                 apply("org.jetbrains.kotlin.plugin.serialization")
-                apply("myrealestateinvestment.android.hilt")
             }
             extensions.configure<LibraryExtension> {
                 defaultConfig {

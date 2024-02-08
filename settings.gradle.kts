@@ -18,3 +18,4 @@ rootProject.name = "My real estate investment"
 include(":app")
 include(":core:common")
 include(":core:ui")
+include(":feature:home")
