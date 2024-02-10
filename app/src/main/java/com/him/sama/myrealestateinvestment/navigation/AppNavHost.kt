@@ -8,6 +8,7 @@ import androidx.navigation.NavHost
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import com.him.sama.myrealestateinvestment.feature.home.HomeScreen
 
 @Composable
 fun AppNavHost(
@@ -22,7 +23,7 @@ fun AppNavHost(
         startDestination = startDestination,
     ) {
         composable(HOME_ROUTE) {
-            Text(text = "HOME_ROUTE")
+            HomeScreen()
         }
         composable(PASSIVE_INCOME_ROUTE) {
             Text(text = "PASSIVE_INCOME_ROUTE")

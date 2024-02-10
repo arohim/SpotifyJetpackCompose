@@ -19,6 +19,7 @@ material = "1.11.0"
 ksp = "1.9.21-1.0.15"
 room = "2.6.1"
 browser = "1.7.0"
+ui-tooling = "1.6.0"
 
 [libraries]
 androidx-compose-bom = "androidx.compose:compose-bom:2024.01.00"
@@ -137,6 +138,7 @@ firebase-perf-ktx = { module = "com.google.firebase:firebase-perf-ktx" }
 pdf-viewer = "io.github.grizzi91:bouquet:1.1.2"
 
 relinker = "com.getkeepsafe.relinker:relinker:1.4.3"
+androidx-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling", version.ref = "ui-tooling" }
 
 [plugins]
 com-android-application = { id = "com.android.application", version.ref = "android-application" }
