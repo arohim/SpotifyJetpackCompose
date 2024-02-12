@@ -25,7 +25,7 @@
             <option value="$PROJECT_DIR$/build-logic" />
             <option value="$PROJECT_DIR$/build-logic/convention" />
             <option value="$PROJECT_DIR$/common" />
-            <option value="$PROJECT_DIR$/common/core2" />
+            <option value="$PROJECT_DIR$/common/core" />
             <option value="$PROJECT_DIR$/common/ui" />
             <option value="$PROJECT_DIR$/feature" />
             <option value="$PROJECT_DIR$/feature/home" />

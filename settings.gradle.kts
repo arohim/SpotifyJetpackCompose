@@ -16,6 +16,6 @@ dependencyResolutionManagement {
 
 rootProject.name = "My real estate investment"
 include(":app")
-include(":common:core2")
+include(":common:core")
 include(":common:ui")
 include(":feature:home")

@@ -29,7 +29,7 @@ android {
 }
 
 dependencies {
-    implementation(project(":common:core2"))
+    implementation(project(":common:core"))
     implementation(project(":common:ui"))
 
     implementation(project(":feature:home"))
