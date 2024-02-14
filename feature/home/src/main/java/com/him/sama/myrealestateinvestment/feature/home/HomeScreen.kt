@@ -32,7 +32,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.him.sama.myrealestateinvestment.common.ui.R.drawable
-import com.him.sama.myrealestateinvestment.common.ui.theme.MyRealEstateInvestmentTheme
+import com.him.sama.myrealestateinvestment.common.ui.theme.SpotifyJetpackCompose
 import com.him.sama.myrealestateinvestment.common.ui.theme.nautral_50
 
 @Composable
@@ -152,7 +152,7 @@ private fun Header() {
 @Preview
 @Composable
 fun PreviewBody() {
-    MyRealEstateInvestmentTheme {
+    SpotifyJetpackCompose {
         Body()
     }
 }

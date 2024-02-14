@@ -15,19 +15,19 @@ enum class BottomBar(
     HOME(
         title = string.bottom_bar_home_title,
         route = HOME_ROUTE,
-        selectedIcon = drawable.ic_round_home_24,
-        unselectedIcon = drawable.ic_round_home_24
+        selectedIcon = drawable.encore_icon_home_active_24,
+        unselectedIcon = drawable.encore_icon_home_24
     ),
-    PASSIVE_INCOME(
-        title = string.bottom_bar_passive_income_title,
+    SEARCH(
+        title = string.bottom_bar_search_title,
         route = PASSIVE_INCOME_ROUTE,
-        selectedIcon = drawable.ic_round_account_balance_wallet_24,
-        unselectedIcon = drawable.ic_round_account_balance_wallet_24
+        selectedIcon = drawable.encore_icon_search_active_24,
+        unselectedIcon = drawable.encore_icon_search_24
     ),
-    SETTING(
-        title = string.bottom_bar_profile_title,
+    YOUR_LIBRARY(
+        title = string.bottom_bar_your_library_title,
         route = SETTING_ROUTE,
-        selectedIcon = drawable.ic_round_account_circle_24,
-        unselectedIcon = drawable.ic_round_account_circle_24
+        selectedIcon = drawable.encore_icon_collection_active_24,
+        unselectedIcon = drawable.encore_icon_collection_24
     )
 }
