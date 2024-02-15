@@ -36,9 +36,7 @@ import com.him.sama.myrealestateinvestment.common.ui.theme.SpotifyJetpackCompose
 import com.him.sama.myrealestateinvestment.common.ui.theme.nautral_50
 
 @Composable
-fun HomeScreen(
-    viewModel: HomeViewModel
-) {
+fun HomeScreen() {
     Body()
 }
 
