@@ -14,7 +14,7 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "My real estate investment"
+rootProject.name = "SpotifyJetpackCompose"
 include(":app")
 include(":common:core")
 include(":common:ui")

@@ -1,6 +1,5 @@
 package com.him.sama.myrealestateinvestment
 
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -30,7 +29,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.him.sama.myrealestateinvestment.common.modifiers.bounceClick
-import com.him.sama.myrealestateinvestment.common.ui.theme.SpotifyJetpackCompose
+import com.him.sama.myrealestateinvestment.common.ui.theme.SpotifyJetpackComposeTheme
 import com.him.sama.myrealestateinvestment.navigation.BottomBar
 
 @Composable
@@ -98,7 +97,7 @@ fun BottomNavigation(
 @Preview
 @Composable
 fun PreviewBottomNavigation() {
-    SpotifyJetpackCompose {
+    SpotifyJetpackComposeTheme {
         val selectedDestination = remember { mutableStateOf(BottomBar.SEARCH) }
         BottomNavigation(selectedDestination = selectedDestination.value, onClick = {
 

@@ -13,16 +13,17 @@ import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.navigation.compose.rememberNavController
+import com.him.sama.myrealestateinvestment.common.component.MusicPlayer
+import com.him.sama.myrealestateinvestment.common.ui.theme.SpotifyJetpackComposeTheme
 import com.him.sama.myrealestateinvestment.navigation.AppNavHost
 import com.him.sama.myrealestateinvestment.navigation.BottomBar
-import com.him.sama.myrealestateinvestment.common.ui.theme.SpotifyJetpackCompose
 
 @Composable
 fun MyApp() {
     val selectedDestination = remember { mutableStateOf(BottomBar.HOME) }
     val navController = rememberNavController()
 
-    SpotifyJetpackCompose {
+    SpotifyJetpackComposeTheme {
         Scaffold(
             modifier = Modifier.fillMaxSize(),
             bottomBar = {
@@ -33,6 +34,7 @@ fun MyApp() {
                         )
                         .padding(top = 20.dp)
                 ) {
+                    MusicPlayer()
                     BottomNavigation(selectedDestination.value, onClick = {
                         selectedDestination.value = it
                     })

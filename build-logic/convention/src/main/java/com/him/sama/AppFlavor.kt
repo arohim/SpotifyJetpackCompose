@@ -14,12 +14,12 @@ internal fun Project.configureFlavors(commonExtension: CommonExtension<*, *, *, 
                 dimension = envDimension
                 if (this@apply is ApplicationExtension && this is ApplicationProductFlavor) {
                     this.applicationIdSuffix = ".dev"
-                    resValue("string", "app_name", "Dev My Real Estate Investment")
+                    resValue("string", "app_name", "Dev SpotifyJetpackCompose")
                 }
             }
             create("production") {
                 dimension = envDimension
-                resValue("string", "app_name", "My Real Estate Investment")
+                resValue("string", "app_name", "SpotifyJetpackCompose")
             }
         }
     }
