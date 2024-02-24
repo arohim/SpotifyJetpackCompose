@@ -30,6 +30,7 @@
             <option value="$PROJECT_DIR$/feature" />
             <option value="$PROJECT_DIR$/feature/home" />
             <option value="$PROJECT_DIR$/feature/search" />
+            <option value="$PROJECT_DIR$/feature/yourlibrary" />
           </set>
         </option>
         <option name="resolveExternalAnnotations" value="false" />
