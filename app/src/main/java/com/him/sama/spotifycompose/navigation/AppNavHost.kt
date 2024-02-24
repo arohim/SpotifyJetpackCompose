@@ -8,6 +8,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.him.sama.spotifycompose.feature.home.HomeScreen
+import com.him.sama.spotifycompose.search.SearchScreen
 
 @Composable
 fun AppNavHost(
@@ -25,7 +26,7 @@ fun AppNavHost(
             HomeScreen()
         }
         composable(PASSIVE_INCOME_ROUTE) {
-            Text(text = "PASSIVE_INCOME_ROUTE")
+            SearchScreen()
         }
         composable(SETTING_ROUTE) {
             Text(text = "SETTING_ROUTE")

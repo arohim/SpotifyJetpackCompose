@@ -20,7 +20,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.him.sama.spotifycompose.common.ui.theme.SpotifyJetpackComposeTheme
+import com.him.sama.spotifycompose.common.ui.theme.AppTheme
 
 @Composable
 fun MusicPlayer() {
@@ -77,7 +77,7 @@ fun MusicPlayer() {
 @Preview
 @Composable
 fun PreviewPlayerComponent() {
-    SpotifyJetpackComposeTheme {
+    AppTheme {
         MusicPlayer()
     }
 }

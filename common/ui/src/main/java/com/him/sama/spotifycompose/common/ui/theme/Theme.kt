@@ -83,7 +83,7 @@ private val DarkColors = darkColorScheme(
 )
 
 @Composable
-fun SpotifyJetpackComposeTheme(
+fun AppTheme(
     useDarkTheme: Boolean = isSystemInDarkTheme(),
     content: @Composable () -> Unit
 ) {

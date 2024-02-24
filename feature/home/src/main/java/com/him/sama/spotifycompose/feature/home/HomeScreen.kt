@@ -1,6 +1,5 @@
 package com.him.sama.spotifycompose.feature.home
 
-import android.annotation.SuppressLint
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -33,20 +32,20 @@ import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.him.sama.spotifycompose.common.ui.theme.SpotifyJetpackComposeTheme
+import com.him.sama.spotifycompose.common.ui.theme.AppTheme
 
 @Composable
 fun HomeScreen() {
     Body()
 }
 
-@SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
 private fun Body() {
     Scaffold {
         LazyVerticalGrid(
             modifier = Modifier
                 .fillMaxSize()
+                .padding(it)
                 .background(color = Color.Black)
                 .graphicsLayer(clip = false),
             columns = GridCells.Fixed(2),
@@ -237,7 +236,7 @@ fun TagItem(title: String, isSelected: Boolean) {
 @Preview
 @Composable
 fun PreviewBody() {
-    SpotifyJetpackComposeTheme {
+    AppTheme {
         Body()
     }
 }

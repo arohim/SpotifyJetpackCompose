@@ -14,7 +14,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.navigation.compose.rememberNavController
 import com.him.sama.spotifycompose.common.component.MusicPlayer
-import com.him.sama.spotifycompose.common.ui.theme.SpotifyJetpackComposeTheme
+import com.him.sama.spotifycompose.common.ui.theme.AppTheme
 import com.him.sama.spotifycompose.navigation.AppNavHost
 import com.him.sama.spotifycompose.navigation.BottomBar
 
@@ -23,7 +23,7 @@ fun MyApp() {
     val selectedDestination = remember { mutableStateOf(BottomBar.HOME) }
     val navController = rememberNavController()
 
-    SpotifyJetpackComposeTheme {
+    AppTheme {
         Scaffold(
             modifier = Modifier.fillMaxSize(),
             bottomBar = {

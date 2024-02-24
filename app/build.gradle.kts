@@ -33,6 +33,8 @@ dependencies {
     implementation(project(":common:ui"))
 
     implementation(project(":feature:home"))
+    implementation(project(":feature:search"))
+    implementation(project(":feature:yourlibrary"))
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)

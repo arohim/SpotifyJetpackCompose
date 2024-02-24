@@ -3,5 +3,5 @@ plugins {
 }
 
 android {
-    namespace = "com.him.sama.spotifycompose.feature.home"
+    namespace = "com.him.sama.spotifycompose.feature.search"
 }

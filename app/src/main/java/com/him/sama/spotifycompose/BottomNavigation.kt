@@ -29,7 +29,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.him.sama.spotifycompose.common.modifiers.bounceClick
-import com.him.sama.spotifycompose.common.ui.theme.SpotifyJetpackComposeTheme
+import com.him.sama.spotifycompose.common.ui.theme.AppTheme
 import com.him.sama.spotifycompose.navigation.BottomBar
 
 @Composable
@@ -97,7 +97,7 @@ fun BottomNavigation(
 @Preview
 @Composable
 fun PreviewBottomNavigation() {
-    SpotifyJetpackComposeTheme {
+    AppTheme {
         val selectedDestination = remember { mutableStateOf(BottomBar.SEARCH) }
         BottomNavigation(selectedDestination = selectedDestination.value, onClick = {
 
