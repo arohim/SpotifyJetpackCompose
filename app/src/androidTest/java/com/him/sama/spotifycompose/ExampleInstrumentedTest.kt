@@ -1,4 +1,4 @@
-package com.him.sama.myrealestateinvestment
+package com.him.sama.spotifycompose
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

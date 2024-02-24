@@ -1,4 +1,4 @@
-package com.him.sama.myrealestateinvestment.feature.home
+package com.him.sama.spotifycompose.feature.home
 
 import androidx.lifecycle.ViewModel
 

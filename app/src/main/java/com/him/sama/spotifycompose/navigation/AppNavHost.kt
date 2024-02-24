@@ -1,4 +1,4 @@
-package com.him.sama.myrealestateinvestment.navigation
+package com.him.sama.spotifycompose.navigation
 
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.material3.Text
@@ -7,7 +7,7 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import com.him.sama.myrealestateinvestment.feature.home.HomeScreen
+import com.him.sama.spotifycompose.feature.home.HomeScreen
 
 @Composable
 fun AppNavHost(

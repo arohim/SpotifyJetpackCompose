@@ -1,4 +1,4 @@
-package com.him.sama.myrealestateinvestment
+package com.him.sama.spotifycompose
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -28,9 +28,9 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.him.sama.myrealestateinvestment.common.modifiers.bounceClick
-import com.him.sama.myrealestateinvestment.common.ui.theme.SpotifyJetpackComposeTheme
-import com.him.sama.myrealestateinvestment.navigation.BottomBar
+import com.him.sama.spotifycompose.common.modifiers.bounceClick
+import com.him.sama.spotifycompose.common.ui.theme.SpotifyJetpackComposeTheme
+import com.him.sama.spotifycompose.navigation.BottomBar
 
 @Composable
 fun BottomNavigation(

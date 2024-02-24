@@ -1,4 +1,4 @@
-package com.him.sama.myrealestateinvestment.common.modifiers
+package com.him.sama.spotifycompose.common.modifiers
 
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.foundation.clickable

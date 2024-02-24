@@ -1,9 +1,8 @@
-package com.him.sama.myrealestateinvestment.navigation
+package com.him.sama.spotifycompose.navigation
 
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
-import com.him.sama.myrealestateinvestment.common.ui.R.drawable
-import com.him.sama.myrealestateinvestment.common.ui.R.string
+import com.him.sama.spotifycompose.common.ui.R.string
 
 
 enum class BottomBar(
