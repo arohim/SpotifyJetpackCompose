@@ -1,4 +1,4 @@
-package com.myrealestateinvestment
+package com.him.sama
 
 import com.android.build.api.dsl.CommonExtension
 import org.gradle.api.JavaVersion

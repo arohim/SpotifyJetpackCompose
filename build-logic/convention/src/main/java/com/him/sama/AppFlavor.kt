@@ -1,4 +1,4 @@
-package com.myrealestateinvestment
+package com.him.sama
 
 import com.android.build.api.dsl.ApplicationExtension
 import com.android.build.api.dsl.ApplicationProductFlavor

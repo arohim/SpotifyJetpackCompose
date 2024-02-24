@@ -1,11 +1,11 @@
 plugins {
-    id("myrealestateinvestment.android.library")
+    id("spotifycompose.android.library")
     id("com.google.devtools.ksp")
-    id("myrealestateinvestment.android.library.compose")
+    id("spotifycompose.android.library.compose")
 }
 
 android {
-    namespace = "com.him.sama.myrealestateinvestment.common.ui"
+    namespace = "com.him.sama.spotifycompose.common.ui"
 }
 
 dependencies {

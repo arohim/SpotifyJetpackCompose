@@ -1,8 +1,8 @@
 import com.android.build.api.dsl.ApplicationExtension
-import com.myrealestateinvestment.configureAndroidCompose
-import com.myrealestateinvestment.configureFlavors
-import com.myrealestateinvestment.configureKotlinAndroid
-import com.myrealestateinvestment.configureKotlinAndroidToolchain
+import com.him.sama.configureAndroidCompose
+import com.him.sama.configureFlavors
+import com.him.sama.configureKotlinAndroid
+import com.him.sama.configureKotlinAndroidToolchain
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.configure

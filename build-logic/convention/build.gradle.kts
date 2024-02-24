@@ -4,7 +4,7 @@ plugins {
     `kotlin-dsl`
 }
 
-group = "com.him.sama.myrealestateinvestment.buildlogic"
+group = "com.him.sama.spotifycompose.buildlogic"
 
 java {
     sourceCompatibility = JavaVersion.VERSION_17
@@ -26,23 +26,23 @@ dependencies {
 gradlePlugin {
     plugins {
         register("androidApplication") {
-            id = "myrealestateinvestment.android.application"
+            id = "spotifycompose.android.application"
             implementationClass = "AndroidApplicationConventionPlugin"
         }
         register("androidHilt") {
-            id = "myrealestateinvestment.android.hilt"
+            id = "spotifycompose.android.hilt"
             implementationClass = "AndroidHiltConventionPlugin"
         }
         register("androidLibrary") {
-            id = "myrealestateinvestment.android.library"
+            id = "spotifycompose.android.library"
             implementationClass = "AndroidLibraryConventionPlugin"
         }
         register("androidLibraryCompose") {
-            id = "myrealestateinvestment.android.library.compose"
+            id = "spotifycompose.android.library.compose"
             implementationClass = "AndroidLibraryComposeConventionPlugin"
         }
         register("androidFeature") {
-            id = "myrealestateinvestment.android.feature"
+            id = "spotifycompose.android.feature"
             implementationClass = "AndroidFeatureConventionPlugin"
         }
     }
