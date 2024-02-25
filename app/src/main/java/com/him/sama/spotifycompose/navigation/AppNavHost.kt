@@ -1,7 +1,6 @@
 package com.him.sama.spotifycompose.navigation
 
 import androidx.compose.foundation.layout.PaddingValues
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
@@ -9,6 +8,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.him.sama.spotifycompose.feature.home.HomeScreen
 import com.him.sama.spotifycompose.search.SearchScreen
+import com.him.sama.spotifycompose.yourlibrary.YourLibraryScreen
 
 @Composable
 fun AppNavHost(
@@ -29,7 +29,7 @@ fun AppNavHost(
             SearchScreen()
         }
         composable(SETTING_ROUTE) {
-            Text(text = "SETTING_ROUTE")
+            YourLibraryScreen()
         }
     }
 }
