@@ -2,13 +2,9 @@ package com.him.sama.spotifycompose
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
@@ -23,7 +19,6 @@ import com.him.sama.spotifycompose.common.component.MusicPlayer
 import com.him.sama.spotifycompose.common.state.WindowSize
 import com.him.sama.spotifycompose.common.state.WindowType
 import com.him.sama.spotifycompose.common.state.rememberWindowSize
-import com.him.sama.spotifycompose.common.ui.navigation.ModalNavigationDrawer
 import com.him.sama.spotifycompose.common.ui.theme.AppTheme
 import com.him.sama.spotifycompose.navigation.AppNavHost
 import com.him.sama.spotifycompose.navigation.BottomBar
@@ -45,55 +40,37 @@ private fun MobileScreen(
     selectedDestination: MutableState<BottomBar>,
     navController: NavHostController
 ) {
-    ModalNavigationDrawer(
-        modifier = Modifier,
-        drawerContent = {
-            Column(
-                modifier = Modifier
-                    .fillMaxWidth(0.85f)
-                    .fillMaxHeight()
-                    .background(Color.LightGray),
-            ) {
-                Text(
-                    text = "Test",
-                    style = MaterialTheme.typography.titleMedium,
-                    color = MaterialTheme.colorScheme.onPrimary
-                )
+    Scaffold(
+        modifier = Modifier.fillMaxSize(),
+        bottomBar = {
+            if (windowSize.width == WindowType.Compact) {
+                Column(
+                    modifier = Modifier
+                        .background(
+                            brush = Brush.verticalGradient(
+                                listOf(
+                                    Color.Transparent,
+                                    Color.Black
+                                )
+                            )
+                        )
+                        .padding(top = 20.dp)
+                ) {
+                    MusicPlayer()
+                    BottomNavigation(selectedDestination.value, onClick = {
+                        selectedDestination.value = it
+                    })
+                }
             }
         }
     ) {
-        Scaffold(
-            modifier = Modifier.fillMaxSize(),
-            bottomBar = {
-                if (windowSize.width == WindowType.Compact) {
-                    Column(
-                        modifier = Modifier
-                            .background(
-                                brush = Brush.verticalGradient(
-                                    listOf(
-                                        Color.Transparent,
-                                        Color.Black
-                                    )
-                                )
-                            )
-                            .padding(top = 20.dp)
-                    ) {
-                        MusicPlayer()
-                        BottomNavigation(selectedDestination.value, onClick = {
-                            selectedDestination.value = it
-                        })
-                    }
-                }
-            }
-        ) {
-            AppNavHost(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .background(Color.Black),
-                navController = navController,
-                startDestination = selectedDestination.value.route,
-                paddingValues = it
-            )
-        }
+        AppNavHost(
+            modifier = Modifier
+                .fillMaxSize()
+                .background(Color.Black),
+            navController = navController,
+            startDestination = selectedDestination.value.route,
+            paddingValues = it
+        )
     }
 }

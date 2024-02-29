@@ -26,6 +26,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
+import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -37,6 +38,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.him.sama.spotifycompose.common.ui.theme.AppTheme
+import com.him.sama.spotifycompose.feature.search.R
 import kotlin.random.Random
 
 @OptIn(ExperimentalLayoutApi::class, ExperimentalFoundationApi::class)
@@ -77,7 +79,7 @@ fun ShortVideoList() {
     ) {
         Text(
             text = "Explore your genes",
-            style = MaterialTheme.typography.titleSmall,
+            style = MaterialTheme.typography.titleMedium,
             color = MaterialTheme.colorScheme.onPrimary
         )
         Spacer(modifier = Modifier.height(16.dp))
@@ -134,7 +136,7 @@ private fun CategoryList() {
     ) {
         Text(
             text = "Browse all",
-            style = MaterialTheme.typography.titleSmall,
+            style = MaterialTheme.typography.titleMedium,
             color = MaterialTheme.colorScheme.onPrimary
         )
         Spacer(modifier = Modifier.height(16.dp))
@@ -181,17 +183,22 @@ private fun SearchBox() {
             .background(Color.Black)
             .fillMaxWidth()
             .padding(16.dp),
+        colors = TextFieldDefaults.colors(
+            unfocusedContainerColor = Color.White,
+            focusedContainerColor = Color.White
+        ),
+        shape = RoundedCornerShape(4.dp),
         placeholder = {
             Text(
                 text = "What do you want to listen to?",
-                style = MaterialTheme.typography.titleMedium,
+                style = MaterialTheme.typography.titleSmall,
                 color = MaterialTheme.colorScheme.secondary
             )
         },
         leadingIcon = {
             Icon(
-                modifier = Modifier.size(34.dp),
-                painter = painterResource(id = com.him.sama.spotifycompose.common.ui.R.drawable.abc_ic_search_api_material),
+                modifier = Modifier.size(24.dp),
+                painter = painterResource(id = com.him.sama.spotifycompose.common.ui.R.drawable.encore_icon_search_24),
                 contentDescription = null,
                 tint = MaterialTheme.colorScheme.onPrimaryContainer
             )
@@ -214,7 +221,7 @@ private fun Header() {
                 .size(36.dp)
                 .background(Color.Gray, CircleShape)
         )
-        Spacer(modifier = Modifier.width(8.dp))
+        Spacer(modifier = Modifier.width(16.dp))
         Text(
             text = "Search",
             style = MaterialTheme.typography.titleLarge,
@@ -222,7 +229,7 @@ private fun Header() {
         )
         Spacer(modifier = Modifier.weight(1f))
         Icon(
-            painter = painterResource(id = com.him.sama.spotifycompose.common.ui.R.drawable.abc_ic_search_api_material),
+            painter = painterResource(id = com.him.sama.spotifycompose.common.ui.R.drawable.baseline_photo_camera_24),
             contentDescription = null,
             tint = Color.White
         )

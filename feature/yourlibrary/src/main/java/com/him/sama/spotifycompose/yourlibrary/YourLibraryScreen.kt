@@ -31,6 +31,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.him.sama.spotifycompose.common.ui.R
 import com.him.sama.spotifycompose.common.ui.theme.AppTheme
+import com.him.sama.spotifycompose.common.ui.theme.nautral_50
 
 @Composable
 fun YourLibraryScreen() {
@@ -51,6 +52,7 @@ private fun Body() {
         ) {
             stickyHeader { Header() }
             item { Filter() }
+            item { Spacer(modifier = Modifier.height(8.dp)) }
             items(30, itemContent = {
                 Row(
                     modifier = Modifier
@@ -60,7 +62,7 @@ private fun Body() {
                 ) {
                     Box(
                         modifier = Modifier
-                            .size(48.dp)
+                            .size(52.dp)
                             .background(Color.LightGray)
                     )
                     Spacer(modifier = Modifier.width(16.dp))
@@ -70,13 +72,13 @@ private fun Body() {
                     ) {
                         Text(
                             text = "Stress Relief",
-                            style = MaterialTheme.typography.labelSmall,
+                            style = MaterialTheme.typography.labelLarge,
                             color = MaterialTheme.colorScheme.onPrimary
                         )
                         Text(
                             text = "Playlist",
                             style = MaterialTheme.typography.labelSmall,
-                            color = MaterialTheme.colorScheme.onPrimary
+                            color = nautral_50
                         )
                     }
                 }
@@ -96,20 +98,20 @@ fun Filter() {
     ) {
         Icon(
             modifier = Modifier.size(16.dp),
-            painter = painterResource(id = android.R.drawable.ic_menu_sort_by_size),
+            painter = painterResource(id = R.drawable.baseline_sort_24),
             contentDescription = null,
             tint = Color.White
         )
         Spacer(modifier = Modifier.width(16.dp))
         Text(
             text = "Recents",
-            style = MaterialTheme.typography.labelSmall,
+            style = MaterialTheme.typography.labelMedium,
             color = MaterialTheme.colorScheme.onPrimary
         )
         Spacer(modifier = Modifier.weight(1f))
         Icon(
             modifier = Modifier.size(16.dp),
-            painter = painterResource(id = android.R.drawable.ic_menu_gallery),
+            painter = painterResource(id = R.drawable.baseline_grid_view_24),
             contentDescription = null,
             tint = Color.White
         )
@@ -147,13 +149,14 @@ private fun Header() {
                 )
                 Spacer(modifier = Modifier.weight(1f))
                 Icon(
-                    painter = painterResource(id = R.drawable.abc_ic_search_api_material),
+                    painter = painterResource(id = R.drawable.encore_icon_search_24),
                     contentDescription = null,
                     tint = Color.White
                 )
                 Spacer(modifier = Modifier.width(16.dp))
                 Icon(
-                    painter = painterResource(id = R.drawable.ic_baseline_add_circle_24),
+                    modifier = Modifier.size(32.dp),
+                    painter = painterResource(id = R.drawable.baseline_add_24),
                     contentDescription = null,
                     tint = Color.White
                 )
