@@ -12,7 +12,7 @@ data class WindowSize(
 )
 
 enum class WindowType {
-    Compact,
+    Mobile,
     Tablet,
     Automotive,
     Television
@@ -35,13 +35,13 @@ fun rememberWindowSize(): WindowSize {
 }
 
 fun getScreenWidth(width: Int): WindowType = when {
-    width < 600 -> WindowType.Compact
+    width < 600 -> WindowType.Mobile
     width < 840 -> WindowType.Tablet
     else -> WindowType.Automotive
 }
 
 fun getScreenHeight(height: Int): WindowType = when {
-    height < 480 -> WindowType.Compact
+    height < 480 -> WindowType.Mobile
     height < 900 -> WindowType.Tablet
     else -> WindowType.Automotive
 }

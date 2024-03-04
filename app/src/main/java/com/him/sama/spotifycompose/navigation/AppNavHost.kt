@@ -1,6 +1,5 @@
 package com.him.sama.spotifycompose.navigation
 
-import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
@@ -14,8 +13,7 @@ import com.him.sama.spotifycompose.yourlibrary.YourLibraryScreen
 fun AppNavHost(
     modifier: Modifier = Modifier,
     navController: NavHostController,
-    startDestination: String,
-    paddingValues: PaddingValues
+    startDestination: String
 ) {
     NavHost(
         modifier = modifier,

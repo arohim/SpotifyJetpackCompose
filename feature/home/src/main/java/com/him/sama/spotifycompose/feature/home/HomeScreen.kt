@@ -30,9 +30,11 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.text.style.TextOverflow
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.him.sama.spotifycompose.common.ui.preview.MobilePreview
+import com.him.sama.spotifycompose.common.ui.preview.TabletPreview
 import com.him.sama.spotifycompose.common.ui.theme.AppTheme
+import com.him.sama.spotifycompose.common.ui.theme.tertiary_background
 
 @Composable
 fun HomeScreen() {
@@ -220,7 +222,7 @@ fun TagItem(title: String, isSelected: Boolean) {
         modifier = Modifier
             .background(
                 color = if (isSelected)
-                    Color(0xFF4CAF50)
+                    tertiary_background
                 else
                     Color(0xFF4B524C),
                 shape = CircleShape
@@ -233,7 +235,8 @@ fun TagItem(title: String, isSelected: Boolean) {
     )
 }
 
-@Preview
+@MobilePreview
+@TabletPreview
 @Composable
 fun PreviewBody() {
     AppTheme {

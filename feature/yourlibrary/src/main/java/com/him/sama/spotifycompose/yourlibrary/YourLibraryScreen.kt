@@ -30,6 +30,8 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.him.sama.spotifycompose.common.ui.R
+import com.him.sama.spotifycompose.common.ui.preview.MobilePreview
+import com.him.sama.spotifycompose.common.ui.preview.TabletPreview
 import com.him.sama.spotifycompose.common.ui.theme.AppTheme
 import com.him.sama.spotifycompose.common.ui.theme.nautral_50
 
@@ -190,7 +192,8 @@ private fun TagItem(text: String) {
     )
 }
 
-@Preview
+@MobilePreview
+@TabletPreview
 @Composable
 private fun PreviewBody() {
     AppTheme {
