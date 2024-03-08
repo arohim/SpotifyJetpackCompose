@@ -4,6 +4,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.navigation.compose.rememberNavController
 import com.him.sama.spotifycompose.common.state.WindowType
 import com.him.sama.spotifycompose.common.state.rememberWindowSize
@@ -16,7 +17,9 @@ import com.him.sama.spotifycompose.screen.TelevisionScreen
 
 @Composable
 fun MyApp() {
-    val selectedDestination = remember { mutableStateOf(BottomBar.HOME) }
+    val selectedDestination = rememberSaveable {
+        mutableStateOf(BottomBar.HOME)
+    }
     val navController = rememberNavController()
     val windowSize = rememberWindowSize()
 

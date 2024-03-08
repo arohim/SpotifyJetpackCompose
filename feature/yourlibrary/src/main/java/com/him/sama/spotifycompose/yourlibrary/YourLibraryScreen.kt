@@ -27,8 +27,10 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.him.sama.spotifycompose.common.state.WindowSize
+import com.him.sama.spotifycompose.common.state.WindowType
+import com.him.sama.spotifycompose.common.state.rememberWindowSize
 import com.him.sama.spotifycompose.common.ui.R
 import com.him.sama.spotifycompose.common.ui.preview.MobilePreview
 import com.him.sama.spotifycompose.common.ui.preview.TabletPreview
@@ -37,12 +39,19 @@ import com.him.sama.spotifycompose.common.ui.theme.nautral_50
 
 @Composable
 fun YourLibraryScreen() {
-    Body()
+    val windowSize = rememberWindowSize()
+
+    Body(windowSize)
 }
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
-private fun Body() {
+private fun Body(windowSize: WindowSize) {
+    val bannerSize = if (windowSize.width == WindowType.Mobile) {
+        52.dp
+    } else {
+        68.dp
+    }
     Scaffold(
         containerColor = Color.Black
     ) {
@@ -64,7 +73,7 @@ private fun Body() {
                 ) {
                     Box(
                         modifier = Modifier
-                            .size(52.dp)
+                            .size(bannerSize)
                             .background(Color.LightGray)
                     )
                     Spacer(modifier = Modifier.width(16.dp))
@@ -74,12 +83,13 @@ private fun Body() {
                     ) {
                         Text(
                             text = "Stress Relief",
-                            style = MaterialTheme.typography.labelLarge,
+                            style = MaterialTheme.typography.bodyLarge,
                             color = MaterialTheme.colorScheme.onPrimary
                         )
+                        Spacer(modifier = Modifier.height(4.dp))
                         Text(
                             text = "Playlist",
-                            style = MaterialTheme.typography.labelSmall,
+                            style = MaterialTheme.typography.labelLarge,
                             color = nautral_50
                         )
                     }
@@ -197,6 +207,6 @@ private fun TagItem(text: String) {
 @Composable
 private fun PreviewBody() {
     AppTheme {
-        Body()
+        Body(rememberWindowSize())
     }
 }
