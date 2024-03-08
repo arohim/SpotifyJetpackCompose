@@ -33,3 +33,10 @@ annotation class TabletPreview
 
 @Preview(group = Automotive.name, device = Automotive.spec, showBackground = true)
 annotation class AutomotivePreview
+
+
+@MobilePreview
+@TelevisionPreview
+@TabletPreview
+@AutomotivePreview
+annotation class AllSupportedDevicePreview

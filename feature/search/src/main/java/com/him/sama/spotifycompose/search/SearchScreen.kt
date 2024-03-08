@@ -35,22 +35,34 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.him.sama.spotifycompose.common.state.WindowSize
+import com.him.sama.spotifycompose.common.state.WindowType
+import com.him.sama.spotifycompose.common.state.rememberWindowSize
+import com.him.sama.spotifycompose.common.ui.preview.AutomotivePreview
+import com.him.sama.spotifycompose.common.ui.preview.MobilePreview
+import com.him.sama.spotifycompose.common.ui.preview.TabletPreview
+import com.him.sama.spotifycompose.common.ui.preview.TelevisionPreview
 import com.him.sama.spotifycompose.common.ui.theme.AppTheme
-import com.him.sama.spotifycompose.feature.search.R
 import kotlin.random.Random
 
-@OptIn(ExperimentalLayoutApi::class, ExperimentalFoundationApi::class)
+@OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun SearchScreen() {
-
+    val windowSize = rememberWindowSize()
+    val horizontalPadding = if (windowSize.width == WindowType.Mobile) {
+        0.dp
+    } else {
+        120.dp
+    }
     Scaffold(
         containerColor = Color.Black
     ) {
         LazyColumn(
             modifier = Modifier
                 .padding(it)
+                .padding(horizontal = horizontalPadding)
+                .padding(bottom = 56.dp)
                 .graphicsLayer(clip = false)
                 .clip(RectangleShape)
         ) {
@@ -62,7 +74,7 @@ fun SearchScreen() {
             }
             item { Spacer(modifier = Modifier.height(16.dp)) }
             item {
-                CategoryList()
+                CategoryList(windowSize)
             }
         }
     }
@@ -89,7 +101,7 @@ fun ShortVideoList() {
         ) {
             Box(
                 modifier = Modifier
-                    .weight(1f)
+                    .width(115.dp)
                     .height(200.dp)
                     .background(
                         Color.LightGray,
@@ -99,7 +111,7 @@ fun ShortVideoList() {
             Spacer(modifier = Modifier.width(16.dp))
             Box(
                 modifier = Modifier
-                    .weight(1f)
+                    .width(115.dp)
                     .height(200.dp)
                     .background(
                         Color.LightGray,
@@ -109,7 +121,7 @@ fun ShortVideoList() {
             Spacer(modifier = Modifier.width(16.dp))
             Box(
                 modifier = Modifier
-                    .weight(1f)
+                    .width(115.dp)
                     .height(200.dp)
                     .background(
                         Color.LightGray,
@@ -122,13 +134,20 @@ fun ShortVideoList() {
 
 @Composable
 @OptIn(ExperimentalLayoutApi::class)
-private fun CategoryList() {
+private fun CategoryList(windowSize: WindowSize) {
     val colors = listOf(
         Color(0xffc4147c),
         Color(0xff8300e7),
         Color(0xff006450),
         Color(0xff93113e)
     )
+    val column = if (windowSize.width == WindowType.Mobile) {
+        2
+    } else if (windowSize.width == WindowType.Tablet) {
+        4
+    } else {
+        6
+    }
     Column(
         modifier = Modifier
             .fillMaxWidth()
@@ -142,14 +161,14 @@ private fun CategoryList() {
         Spacer(modifier = Modifier.height(16.dp))
         FlowRow(
             modifier = Modifier,
-            maxItemsInEachRow = 2,
+            maxItemsInEachRow = column,
             verticalArrangement = Arrangement.spacedBy(16.dp),
             horizontalArrangement = Arrangement.spacedBy(16.dp)
         ) {
             repeat(50) {
                 Box(
                     modifier = Modifier
-                        .fillMaxWidth(0.4783f)
+                        .weight(1f)
                         .height(100.dp)
                         .background(
                             colors[Random.nextInt(3)],
@@ -272,7 +291,10 @@ private fun Body(modifier: Modifier) {
     }
 }
 
-@Preview
+@MobilePreview
+@TelevisionPreview
+@TabletPreview
+@AutomotivePreview
 @Composable
 fun PreviewSearchScreen() {
     AppTheme {
