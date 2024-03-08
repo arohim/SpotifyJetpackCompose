@@ -2,6 +2,7 @@ package com.him.sama.spotifycompose.screen
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -14,16 +15,11 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
-import androidx.compose.material3.LocalMinimumInteractiveComponentEnforcement
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Slider
-import androidx.compose.material3.SliderDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -36,10 +32,8 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.him.sama.spotifycompose.common.component.TabletPlayer
-import com.him.sama.spotifycompose.common.ui.R
 import com.him.sama.spotifycompose.common.ui.preview.TabletPreview
 import com.him.sama.spotifycompose.common.ui.theme.AppTheme
-import com.him.sama.spotifycompose.common.ui.theme.nautral_50
 import com.him.sama.spotifycompose.common.ui.theme.secondary_background
 import com.him.sama.spotifycompose.common.ui.theme.tertiary_background
 import com.him.sama.spotifycompose.common.ui.theme.unselected_color
@@ -62,7 +56,10 @@ fun TabletScreen(
         ) {
             LeftMenu(
                 modifier = Modifier.fillMaxWidth(0.20f),
-                selectedDestination
+                selectedDestination = selectedDestination,
+                onMenuClick = {
+                    selectedDestination.value = it
+                }
             )
             AppNavHost(
                 modifier = Modifier
@@ -77,7 +74,11 @@ fun TabletScreen(
 }
 
 @Composable
-private fun LeftMenu(modifier: Modifier, selectedDestination: MutableState<BottomBar>) {
+private fun LeftMenu(
+    modifier: Modifier,
+    selectedDestination: MutableState<BottomBar>,
+    onMenuClick: (BottomBar) -> Unit
+) {
     Column(
         modifier = modifier
             .fillMaxHeight()
@@ -85,21 +86,37 @@ private fun LeftMenu(modifier: Modifier, selectedDestination: MutableState<Botto
             .padding(top = 42.dp),
         verticalArrangement = Arrangement.Top,
     ) {
-        MenuItem(BottomBar.HOME, selectedDestination.value == BottomBar.HOME)
-        MenuItem(BottomBar.SEARCH, selectedDestination.value == BottomBar.SEARCH)
-        MenuItem(BottomBar.YOUR_LIBRARY, selectedDestination.value == BottomBar.YOUR_LIBRARY)
+        MenuItem(
+            bottomBar = BottomBar.HOME,
+            isSelected = selectedDestination.value == BottomBar.HOME
+        ) {
+            onMenuClick(BottomBar.HOME)
+        }
+        MenuItem(
+            bottomBar = BottomBar.SEARCH,
+            isSelected = selectedDestination.value == BottomBar.SEARCH
+        ) {
+            onMenuClick(BottomBar.SEARCH)
+        }
+        MenuItem(
+            bottomBar = BottomBar.YOUR_LIBRARY,
+            isSelected = selectedDestination.value == BottomBar.YOUR_LIBRARY
+        ) {
+            onMenuClick(BottomBar.YOUR_LIBRARY)
+        }
         TabletPlayer(Modifier.weight(1f))
     }
 }
 
 @Composable
-private fun MenuItem(bottomBar: BottomBar, isSelected: Boolean) {
+private fun MenuItem(bottomBar: BottomBar, isSelected: Boolean, onClick: () -> Unit) {
     val icon = if (isSelected) bottomBar.selectedIcon else bottomBar.unselectedIcon
     val color = if (isSelected) MaterialTheme.colorScheme.onPrimary else unselected_color
 
     Row(
         modifier = Modifier
             .fillMaxWidth()
+            .clickable(onClick = onClick)
             .height(48.dp)
             .padding(vertical = 8.dp)
             .padding(end = 8.dp),

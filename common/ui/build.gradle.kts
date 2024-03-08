@@ -18,6 +18,7 @@ dependencies {
     api(libs.androidx.ui.graphics)
     api(libs.androidx.compose.ui.tooling.preview)
     api(libs.androidx.compose.material3)
+    api(libs.androidx.compose.window.size)
 
     // Android Studio Preview support
     debugApi(libs.androidx.compose.ui.tooling.preview)

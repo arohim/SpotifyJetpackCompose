@@ -26,6 +26,7 @@ androidx-compose-bom = "androidx.compose:compose-bom:2024.01.00"
 androidx-compose-material = { module = "androidx.compose.material:material" }
 androidx-compose-material3 = { module = "androidx.compose.material3:material3" }
 androidx-compose-activity = "androidx.activity:activity-compose:1.8.2"
+androidx-compose-window-size = { module = "androidx.compose.material3:material3-window-size-class" }
 androidx-constraintlayout-compose = "androidx.constraintlayout:constraintlayout-compose:1.0.1"
 androidx-compose-ui-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview" }
 androidx-compose-ui-tooling = { module = "androidx.compose.ui:ui-tooling" }

@@ -1,5 +1,6 @@
 package com.him.sama.spotifycompose
 
+import androidx.compose.foundation.layout.Column
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -11,6 +12,7 @@ import com.him.sama.spotifycompose.navigation.BottomBar
 import com.him.sama.spotifycompose.screen.AutomotiveScreen
 import com.him.sama.spotifycompose.screen.MobileScreen
 import com.him.sama.spotifycompose.screen.TabletScreen
+import com.him.sama.spotifycompose.screen.TelevisionScreen
 
 @Composable
 fun MyApp() {
@@ -19,10 +21,13 @@ fun MyApp() {
     val windowSize = rememberWindowSize()
 
     AppTheme {
-        when (windowSize.width) {
-            WindowType.Mobile -> MobileScreen(windowSize, selectedDestination, navController)
-            WindowType.Tablet -> TabletScreen(selectedDestination, navController)
-            else -> AutomotiveScreen(selectedDestination, navController)
+        Column {
+            when (windowSize.width) {
+                WindowType.Mobile -> MobileScreen(windowSize, selectedDestination, navController)
+                WindowType.Tablet -> TabletScreen(selectedDestination, navController)
+                WindowType.Automotive -> AutomotiveScreen(selectedDestination, navController)
+                WindowType.Television -> TelevisionScreen(selectedDestination, navController)
+            }
         }
     }
 }
