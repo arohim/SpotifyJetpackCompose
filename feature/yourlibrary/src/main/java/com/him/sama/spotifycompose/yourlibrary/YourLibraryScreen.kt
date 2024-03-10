@@ -32,8 +32,10 @@ import com.him.sama.spotifycompose.common.state.WindowSize
 import com.him.sama.spotifycompose.common.state.WindowType
 import com.him.sama.spotifycompose.common.state.rememberWindowSize
 import com.him.sama.spotifycompose.common.ui.R
+import com.him.sama.spotifycompose.common.ui.preview.AutomotivePreview
 import com.him.sama.spotifycompose.common.ui.preview.MobilePreview
 import com.him.sama.spotifycompose.common.ui.preview.TabletPreview
+import com.him.sama.spotifycompose.common.ui.preview.TelevisionPreview
 import com.him.sama.spotifycompose.common.ui.theme.AppTheme
 import com.him.sama.spotifycompose.common.ui.theme.nautral_50
 
@@ -204,6 +206,8 @@ private fun TagItem(text: String) {
 
 @MobilePreview
 @TabletPreview
+@AutomotivePreview
+@TelevisionPreview
 @Composable
 private fun PreviewBody() {
     AppTheme {
