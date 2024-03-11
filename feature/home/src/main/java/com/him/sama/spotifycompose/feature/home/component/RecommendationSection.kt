@@ -28,12 +28,18 @@ import com.him.sama.spotifycompose.common.state.WindowType
 @SuppressLint("UnusedBoxWithConstraintsScope")
 @Composable
 internal fun RecommendationSection(windowSize: WindowSize) {
-    val maxItemsInEachRow = if (windowSize.width == WindowType.Mobile) {
-        2
-    } else if (windowSize.width == WindowType.Television) {
-        4
-    } else {
-        3
+    val maxItemsInEachRow = when (windowSize.width) {
+        WindowType.Mobile -> {
+            2
+        }
+
+        WindowType.Television -> {
+            4
+        }
+
+        else -> {
+            3
+        }
     }
     val widthFraction = 1.0f / maxItemsInEachRow
 
