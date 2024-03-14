@@ -97,6 +97,7 @@ appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "a
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 mpchart = "com.github.PhilJay:MPAndroidChart:v3.1.0"
 kotlin-reflect = { module = "org.jetbrains.kotlin:kotlin-reflect", version.ref = "kotlin-version" }
+gson-converter = "com.squareup.retrofit2:converter-gson:2.9.0"
 
 # Dependencies of the included build-logic
 android-gradlePlugin = { group = "com.android.tools.build", name = "gradle", version.ref = "agp" }

@@ -12,6 +12,7 @@ class AndroidFeatureConventionPlugin : Plugin<Project> {
             pluginManager.apply {
                 apply("spotifycompose.android.library.compose")
                 apply("org.jetbrains.kotlin.plugin.serialization")
+                apply("spotifycompose.android.hilt")
             }
             extensions.configure<LibraryExtension> {
                 defaultConfig {

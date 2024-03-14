@@ -1,6 +1,7 @@
 plugins {
     id("spotifycompose.android.application")
     id("org.jetbrains.kotlin.android")
+    id("spotifycompose.android.hilt")
 }
 
 android {
