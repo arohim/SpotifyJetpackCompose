@@ -17,13 +17,15 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import com.him.sama.spotifycompose.common.ui.theme.background_color
 import com.him.sama.spotifycompose.common.ui.theme.tertiary_background
 
 @Composable
 internal fun Header() {
     Row(
         modifier = Modifier
-            .fillMaxWidth(),
+            .fillMaxWidth()
+            .background(background_color),
         verticalAlignment = Alignment.CenterVertically
     ) {
         Box(
