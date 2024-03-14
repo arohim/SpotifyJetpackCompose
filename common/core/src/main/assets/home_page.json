@@ -1,0 +1,88 @@
+[
+  {
+    "layout_type": "grid",
+    "title": "",
+    "items": [
+      {
+        "title": "Peaceful Guitar",
+        "image": "https://i.scdn.co/image/ab67706f00000002c1811d50fbd4df02ea3b06a3"
+      },
+      {
+        "title": "Stress Relief",
+        "image": "https://i.scdn.co/image/ab67706f0000000231ca8abcbff3f5a3eb1fd339"
+      },
+      {
+        "title": "Running Music 2024 Workout",
+        "image": "https://i.scdn.co/image/ab67706f000000020179e669c5f45b51def86cf8"
+      },
+      {
+        "title": "Beast Mode",
+        "image": ""
+      },
+      {
+        "title": "Workout Beats",
+        "image": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000da845ccd0896ef554c0a25d4c2a4"
+      },
+      {
+        "title": "Lazy Jazz Cat",
+        "image": "https://i.scdn.co/image/ab67706f00000002040a7c1e321cb5361fbbcca7"
+      },
+      {
+        "title": "Detox",
+        "image": "https://i.scdn.co/image/ab67706f000000024f51ab4c32e9e56fe55179d9"
+      },
+      {
+        "title": "ฉันฟังเพลงไทย",
+        "image": "https://i.scdn.co/image/ab67656300005f1fb961a832d7541a6333d1a1cb"
+      },
+      {
+        "title": "The Standard",
+        "image": "https://i.scdn.co/image/ab67656300005f1f113522b7917f896f7ab524a2"
+      }
+    ]
+  },
+  {
+    "layout_type": "album",
+    "title": "Picked for you",
+    "items": [
+      {
+        "category_name": "Lifestyles & Health",
+        "title": "Mishary Rashid Alafasy",
+        "category_hierarchy": "Show * Muslim Central",
+        "image": "https://i.scdn.co/image/247cd193399664b5768e56335d66aab31a760e61"
+      },
+      {
+        "category_name": "Educational",
+        "title": "The Standard Podcast",
+        "category_hierarchy": "Show * Muslim Central"
+      },
+      {
+        "category_name": "Business",
+        "title": "Mission to the Moon",
+        "category_hierarchy": "Show * Mission to the Moon",
+        "image": "https://i.scdn.co/image/ab67656300005f1fc3e6aa88f745ebb9004b5df6"
+      }
+    ]
+  },
+  {
+    "layout_type": "play_widget",
+    "title": "Picked for you",
+    "items": [
+      {
+        "category_name": "Lifestyles & Health",
+        "title": "Mishary Rashid Alafasy",
+        "category_hierarchy": "Show * Muslim Central"
+      },
+      {
+        "category_name": "Educational",
+        "title": "The Standard Podcast",
+        "category_hierarchy": "Show * Muslim Central"
+      },
+      {
+        "category_name": "Business",
+        "title": "Mission to the Moon",
+        "category_hierarchy": "Show * Mission to the Moon"
+      }
+    ]
+  }
+]
