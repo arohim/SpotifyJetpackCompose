@@ -11,12 +11,12 @@
 
 |                                       |                                   |
 |---------------------------------------|-----------------------------------|
-| ![Home](resources/tablet-1.png)       | ![Search](resources/tablet-2.png) |
-| ![My Library](resources/tablet-3.png) |                                   |
+| ![Home](resources/tv-1.png)       | ![Search](resources/tv-2.png) |
+| ![My Library](resources/tv-3.png) |                                   |
 
 ### TV screen shots
 
 |                                   |                               |
 |-----------------------------------|-------------------------------|
-| ![Home](resources/tv-1.png)       | ![Search](resources/tv-2.png) |
-| ![My Library](resources/tv-3.png) |                               |
+| ![Home](resources/tablet-1.png)       | ![Search](resources/tablet-2.png) |
+| ![My Library](resources/tablet-3.png) |                               |
