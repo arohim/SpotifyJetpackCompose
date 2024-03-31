@@ -1,6 +1,6 @@
 [
   {
-    "layout_type": "grid",
+    "layout_type": "GRID",
     "title": "",
     "items": [
       {
@@ -42,7 +42,7 @@
     ]
   },
   {
-    "layout_type": "album",
+    "layout_type": "ALBUM",
     "title": "Picked for you",
     "items": [
       {
@@ -65,7 +65,7 @@
     ]
   },
   {
-    "layout_type": "play_widget",
+    "layout_type": "PLAY_WIDGET",
     "title": "Picked for you",
     "items": [
       {
