@@ -7,14 +7,14 @@
 | ![Home](resources/mobile-1.png)       | ![Search](resources/mobile-2.png) |
 | ![My Library](resources/mobile-3.png) |                                   |
 
-### Tablet screen shots
+### TV screen shots
 
 |                                       |                                   |
 |---------------------------------------|-----------------------------------|
 | ![Home](resources/tablet-1.png)       | ![Search](resources/tablet-2.png) |
 | ![My Library](resources/tablet-3.png) |                                   |
 
-### TV screen shots
+### Tablet screen shots
 
 |                                   |                               |
 |-----------------------------------|-------------------------------|
