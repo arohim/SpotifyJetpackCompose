@@ -21,15 +21,15 @@ This is Spotify clone built with jetpack compose supporting multiple screen size
 ### 📷 Tablet screen shots
 
 <p align="center">
-<img src="resources/tablet-1.png" alt="drawing"  />
-<img src="resources/tablet-2.png" alt="drawing"  />
-<img src="resources/tablet-3.png" alt="drawing"  />
+<img src="resources/tablet-1.png" alt="drawing"  width="500"  />
+<img src="resources/tablet-2.png" alt="drawing"  width="500"  />
+<img src="resources/tablet-3.png" alt="drawing"  width="500"  />
 </p>
 
 ### 📷 TV screen shots
 
 <p align="center">
-<img src="resources/tv-1.png" alt="drawing" width="500" />
-<img src="resources/tv-2.png" alt="drawing" width="500" />
-<img src="resources/tv-3.png" alt="drawing" width="500" />
+<img src="resources/tv-1.png" alt="drawing" />
+<img src="resources/tv-2.png" alt="drawing" />
+<img src="resources/tv-3.png" alt="drawing" />
 </p>
