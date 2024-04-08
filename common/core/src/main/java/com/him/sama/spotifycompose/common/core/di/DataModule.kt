@@ -27,6 +27,7 @@ internal abstract class DataModule {
     abstract fun homeRepository(impl: HomeRepositoryImpl): HomeRepository
 
     @Binds
+    @Singleton
     abstract fun homeResponseToHomeModelMapper(impl: HomeResponseToHomeDomainMapper): Mapper<HomeResponseItem, EitherNel<HomeValidationError, HomeModelItem>>
 
     @Binds

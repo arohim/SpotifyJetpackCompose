@@ -50,12 +50,11 @@ internal class RemoteModule {
         @BaseUrl baseUrl: String,
         gson: Gson,
         client: OkHttpClient,
-    ): Retrofit =
-        provideRetrofit(
-            baseUrl = baseUrl,
-            gson = gson,
-            client = client,
-        )
+    ): Retrofit = provideRetrofit(
+        baseUrl = baseUrl,
+        gson = gson,
+        client = client,
+    )
 
     @Provides
     @Singleton
