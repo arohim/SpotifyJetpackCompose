@@ -1,10 +1,12 @@
 package com.him.sama.spotifycompose.common.core.domain.repository
 
-import com.him.sama.spotifycompose.common.core.data.remote.model.HomeResponseItem
-import retrofit2.Response
+import arrow.core.Either
+import com.him.sama.spotifycompose.common.core.domain.model.HomeModelItem
+import com.him.sama.spotifycompose.common.core.domain.model.UserError
+import kotlinx.coroutines.flow.Flow
 
 interface HomeRepository {
 
-    suspend fun fetchHomeData(): Response<List<HomeResponseItem>>
+    suspend fun fetchHomeData(): Flow<Either<UserError, List<HomeModelItem>>>
 
 }

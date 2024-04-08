@@ -17,10 +17,10 @@ data class HomeResponseItem(
     val title: String,
 
     @field:SerializedName("items")
-    val items: List<ItemsItem> = listOf()
+    val items: List<HomeResponseDetailItem> = listOf()
 )
 
-data class ItemsItem(
+data class HomeResponseDetailItem(
 
     @field:SerializedName("image")
     val image: String,

@@ -15,6 +15,8 @@ dependencies {
     api(libs.retrofit2.log)
     api(libs.gson.converter)
     api(libs.com.jakewharton.timber)
+    api(libs.arrow.core)
+    api(libs.arrow.fx.coroutines)
 
     implementation(libs.retromock)
 

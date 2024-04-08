@@ -20,6 +20,7 @@ ksp = "1.9.21-1.0.15"
 room = "2.6.1"
 browser = "1.7.0"
 ui-tooling = "1.6.0"
+arrow = "1.1.3"
 
 [libraries]
 androidx-compose-bom = "androidx.compose:compose-bom:2024.01.00"
@@ -84,7 +85,7 @@ kotlinx-coroutines-test = "org.jetbrains.kotlinx:kotlinx-coroutines-test:1.7.1"
 datastore = "androidx.datastore:datastore-preferences:1.0.0"
 retrofit2 = "com.squareup.retrofit2:retrofit:2.9.0"
 retrofit2-kotlin-serialization-converter = "com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:1.0.0"
-retrofit2-log = "com.squareup.okhttp3:logging-interceptor:4.10.0"
+retrofit2-log = "com.squareup.okhttp3:logging-interceptor:4.12.0"
 chucker = { module = "com.github.chuckerteam.chucker:library", version.ref = "chucker" }
 chucker-no-op = { module = "com.github.chuckerteam.chucker:library-no-op", version.ref = "chucker" }
 stetho = { module = "com.facebook.stetho:stetho", version.ref = "stetho" }
@@ -141,6 +142,9 @@ pdf-viewer = "io.github.grizzi91:bouquet:1.1.2"
 
 relinker = "com.getkeepsafe.relinker:relinker:1.4.3"
 androidx-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling", version.ref = "ui-tooling" }
+
+arrow-core = { module = "io.arrow-kt:arrow-core", version.ref = "arrow" }
+arrow-fx-coroutines = { module = "io.arrow-kt:arrow-fx-coroutines", version.ref = "arrow" }
 
 [plugins]
 com-android-application = { id = "com.android.application", version.ref = "android-application" }
