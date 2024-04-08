@@ -24,7 +24,7 @@ annotation class BaseUrl
 
 @Module
 @InstallIn(SingletonComponent::class)
-internal abstract class RemoteModule {
+internal class RemoteModule {
 
     @Provides
     @Singleton

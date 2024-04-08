@@ -1,5 +1,6 @@
 package com.him.sama.spotifycompose.common.core.di
 
+import arrow.core.EitherNel
 import arrow.core.Nel
 import arrow.core.Validated
 import com.him.sama.spotifycompose.common.core.core.Mapper
@@ -17,8 +18,6 @@ import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import javax.inject.Singleton
 
-internal typealias HomeResponseToHomeDomainMapperType = Mapper<HomeResponseItem, Validated<Nel<HomeValidationError>, HomeModelItem>>
-
 @Module
 @InstallIn(SingletonComponent::class)
 internal abstract class DataModule {
@@ -28,7 +27,7 @@ internal abstract class DataModule {
     abstract fun homeRepository(impl: HomeRepositoryImpl): HomeRepository
 
     @Binds
-    abstract fun homeResponseToHomeModelMapper(impl: HomeResponseToHomeDomainMapper): HomeResponseToHomeDomainMapperType
+    abstract fun homeResponseToHomeModelMapper(impl: HomeResponseToHomeDomainMapper): Mapper<HomeResponseItem, EitherNel<HomeValidationError, HomeModelItem>>
 
     @Binds
     abstract fun userErrorMapper(impl: NetworkErrorMapper): Mapper<Throwable, UserError>

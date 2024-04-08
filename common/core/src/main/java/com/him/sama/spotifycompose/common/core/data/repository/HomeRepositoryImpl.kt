@@ -1,6 +1,7 @@
 package com.him.sama.spotifycompose.common.core.data.repository
 
 import arrow.core.Either
+import arrow.core.EitherNel
 import arrow.core.getOrElse
 import arrow.core.left
 import arrow.core.leftWiden
@@ -8,10 +9,10 @@ import arrow.core.right
 import com.him.sama.spotifycompose.common.core.core.Mapper
 import com.him.sama.spotifycompose.common.core.core.dispatcher.AppCoroutineDispatchers
 import com.him.sama.spotifycompose.common.core.core.retrySuspend
-import com.him.sama.spotifycompose.common.core.di.HomeResponseToHomeDomainMapperType
 import com.him.sama.spotifycompose.common.core.data.remote.model.HomeResponseItem
 import com.him.sama.spotifycompose.common.core.data.remote.service.ApiService
 import com.him.sama.spotifycompose.common.core.domain.model.HomeModelItem
+import com.him.sama.spotifycompose.common.core.domain.model.HomeValidationError
 import com.him.sama.spotifycompose.common.core.domain.model.UserError
 import com.him.sama.spotifycompose.common.core.domain.repository.HomeRepository
 import kotlinx.coroutines.flow.Flow
@@ -28,7 +29,7 @@ import kotlin.time.toDuration
 class HomeRepositoryImpl @Inject constructor(
     private val apiService: ApiService,
     private val dispatchers: AppCoroutineDispatchers,
-    private val responseToDomain: HomeResponseToHomeDomainMapperType,
+    private val responseToDomain: Mapper<HomeResponseItem, EitherNel<HomeValidationError, HomeModelItem>>,
     private val errorMapper: Mapper<Throwable, UserError>
 ) : HomeRepository {
 

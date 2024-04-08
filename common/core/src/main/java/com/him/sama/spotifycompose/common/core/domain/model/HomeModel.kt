@@ -1,10 +1,8 @@
 package com.him.sama.spotifycompose.common.core.domain.model
 
-import arrow.core.Nel
-import arrow.core.Validated
-import arrow.core.ValidatedNel
+import arrow.core.EitherNel
 import arrow.core.getOrElse
-import arrow.core.validNel
+import arrow.core.right
 import com.him.sama.spotifycompose.common.core.data.remote.model.HomeResponseDetailItem
 
 enum class HomeLayoutType {
@@ -23,14 +21,14 @@ data class HomeModelItem(
             layoutType: HomeLayoutType?,
             title: String,
             items: List<HomeResponseDetailItem>
-        ): Validated<Nel<HomeValidationError>, HomeModelItem> {
+        ): EitherNel<HomeValidationError, HomeModelItem> {
             return HomeModelItem(
                 layoutType = layoutType ?: HomeLayoutType.ALBUM,
                 title = title,
                 items = items.map {
                     HomeDetailItem.create(it).getOrElse { error("") }
                 }
-            ).validNel()
+            ).right()
         }
     }
 }
@@ -42,13 +40,13 @@ data class HomeDetailItem(
     val categoryName: String
 ) {
     companion object {
-        fun create(item: HomeResponseDetailItem): Validated<Nel<HomeValidationError>, HomeDetailItem> {
+        fun create(item: HomeResponseDetailItem): EitherNel<HomeValidationError, HomeDetailItem> {
             return HomeDetailItem(
                 image = item.image,
                 title = item.title,
                 categoryHierarchy = item.categoryHierarchy,
                 categoryName = item.categoryName
-            ).validNel()
+            ).right()
         }
     }
 }
