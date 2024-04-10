@@ -17,6 +17,11 @@ dependencies {
     api(libs.com.jakewharton.timber)
     api(libs.arrow.core)
     api(libs.arrow.fx.coroutines)
+    api(libs.androidx.lifecycle.viewmodel.ktx)
+    api(libs.immutable.collection)
+    api(libs.androidx.lifecycle.viewmodel.compose)
+    api(libs.androidx.lifecycle.runtime.compose)
+    api(libs.hilt.navigation.compose)
 
     implementation(libs.retromock)
 

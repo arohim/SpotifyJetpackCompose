@@ -34,7 +34,7 @@ internal fun TabletHomeBody(windowSize: WindowSize) {
     ) {
         Header()
         Spacer(modifier = Modifier.height(16.dp))
-        RecommendationSection(windowSize)
+        RecommendationSection(windowSize, listOf())
         Spacer(modifier = Modifier.height(26.dp))
         HighlightedAlbum()
         HighlightedAlbum()

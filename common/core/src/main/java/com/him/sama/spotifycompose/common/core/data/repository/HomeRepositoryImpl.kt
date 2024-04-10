@@ -6,12 +6,12 @@ import arrow.core.getOrElse
 import arrow.core.left
 import arrow.core.leftWiden
 import arrow.core.right
-import com.him.sama.spotifycompose.common.core.core.Mapper
-import com.him.sama.spotifycompose.common.core.core.dispatcher.AppCoroutineDispatchers
-import com.him.sama.spotifycompose.common.core.core.retrySuspend
+import com.him.sama.spotifycompose.common.core.base.Mapper
+import com.him.sama.spotifycompose.common.core.base.dispatcher.AppCoroutineDispatchers
+import com.him.sama.spotifycompose.common.core.base.retrySuspend
 import com.him.sama.spotifycompose.common.core.data.remote.model.HomeResponseItem
 import com.him.sama.spotifycompose.common.core.data.remote.service.ApiService
-import com.him.sama.spotifycompose.common.core.domain.model.HomeModelItem
+import com.him.sama.spotifycompose.common.core.domain.model.HomeDomainItem
 import com.him.sama.spotifycompose.common.core.domain.model.HomeValidationError
 import com.him.sama.spotifycompose.common.core.domain.model.UserError
 import com.him.sama.spotifycompose.common.core.domain.repository.HomeRepository
@@ -29,11 +29,11 @@ import kotlin.time.toDuration
 class HomeRepositoryImpl @Inject constructor(
     private val apiService: ApiService,
     private val dispatchers: AppCoroutineDispatchers,
-    private val responseToDomain: Mapper<HomeResponseItem, EitherNel<HomeValidationError, HomeModelItem>>,
+    private val responseToDomain: Mapper<HomeResponseItem, EitherNel<HomeValidationError, HomeDomainItem>>,
     private val errorMapper: Mapper<Throwable, UserError>
 ) : HomeRepository {
 
-    private val responseToDomainThrows: (HomeResponseItem) -> HomeModelItem = { response ->
+    private val responseToDomainThrows: (HomeResponseItem) -> HomeDomainItem = { response ->
         responseToDomain(response).let { validated ->
             validated.toEither().getOrElse {
                 val t = UserError.NetworkError
@@ -42,7 +42,7 @@ class HomeRepositoryImpl @Inject constructor(
         }
     }
 
-    private suspend fun getHomeDataFromRemoteWithRetry(): List<HomeModelItem> {
+    private suspend fun getHomeDataFromRemoteWithRetry(): List<HomeDomainItem> {
         return withContext(dispatchers.io) {
             retrySuspend(
                 times = 3,
@@ -58,12 +58,12 @@ class HomeRepositoryImpl @Inject constructor(
         }
     }
 
-    override suspend fun fetchHomeData(): Flow<Either<UserError, List<HomeModelItem>>> =
+    override suspend fun fetchHomeData(): Flow<Either<UserError, List<HomeDomainItem>>> =
         flow {
             emit(getHomeDataFromRemoteWithRetry())
         }.map {
             val right = it.right()
-            right.leftWiden<UserError, Nothing, List<HomeModelItem>>()
+            right.leftWiden<UserError, Nothing, List<HomeDomainItem>>()
         }.catch {
             logError(it, "getUsers")
             val value: Either<UserError, Nothing> = errorMapper(it).left()

@@ -23,14 +23,14 @@ data class HomeResponseItem(
 data class HomeResponseDetailItem(
 
     @field:SerializedName("image")
-    val image: String,
+    val image: String? = "",
 
     @field:SerializedName("title")
     val title: String,
 
     @field:SerializedName("category_hierarchy")
-    val categoryHierarchy: String,
+    val categoryHierarchy: String? = "",
 
     @field:SerializedName("category_name")
-    val categoryName: String
+    val categoryName: String? = ""
 )

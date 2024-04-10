@@ -1,20 +1,30 @@
 package com.him.sama.spotifycompose.common.core.data.mapper
 
 import arrow.core.EitherNel
-import com.him.sama.spotifycompose.common.core.core.Mapper
+import arrow.core.getOrElse
+import com.him.sama.spotifycompose.common.core.base.Mapper
 import com.him.sama.spotifycompose.common.core.data.remote.model.HomeResponseItem
-import com.him.sama.spotifycompose.common.core.domain.model.HomeLayoutType
-import com.him.sama.spotifycompose.common.core.domain.model.HomeModelItem
+import com.him.sama.spotifycompose.common.core.domain.model.HomeDomainDetailItem
+import com.him.sama.spotifycompose.common.core.domain.model.HomeDomainItem
+import com.him.sama.spotifycompose.common.core.domain.model.HomeDomainLayoutType
 import com.him.sama.spotifycompose.common.core.domain.model.HomeValidationError
 import javax.inject.Inject
 
 internal class HomeResponseToHomeDomainMapper @Inject constructor() :
-    Mapper<HomeResponseItem, EitherNel<HomeValidationError, HomeModelItem>> {
-    override fun invoke(param: HomeResponseItem): EitherNel<HomeValidationError, HomeModelItem> {
-        return HomeModelItem.create(
-            layoutType = HomeLayoutType.valueOf(param.layoutType.name),
+    Mapper<HomeResponseItem, EitherNel<HomeValidationError, HomeDomainItem>> {
+
+    override fun invoke(param: HomeResponseItem): EitherNel<HomeValidationError, HomeDomainItem> {
+        return HomeDomainItem.create(
+            layoutType = HomeDomainLayoutType.valueOf(param.layoutType.name),
             title = param.title,
-            items = listOf()
+            items = param.items.map {
+                HomeDomainDetailItem.create(
+                    image = it.image ?: "",
+                    title = it.title,
+                    categoryHierarchy = it.categoryHierarchy ?: "",
+                    categoryName = it.categoryName ?: ""
+                ).getOrElse { error("") }
+            }
         )
     }
 }

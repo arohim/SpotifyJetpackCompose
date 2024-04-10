@@ -42,7 +42,7 @@ internal fun TelevisionHomeBody(windowSize: WindowSize) {
                 .verticalScroll(rememberScrollState()),
         ) {
             Spacer(modifier = Modifier.height(16.dp))
-            RecommendationSection(windowSize)
+            RecommendationSection(windowSize, listOf())
             Spacer(modifier = Modifier.height(26.dp))
             HighlightedAlbum()
             HighlightedAlbum()

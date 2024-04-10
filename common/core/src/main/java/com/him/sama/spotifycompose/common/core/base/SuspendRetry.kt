@@ -1,4 +1,4 @@
-package com.him.sama.spotifycompose.common.core.core
+package com.him.sama.spotifycompose.common.core.base
 
 import kotlinx.coroutines.delay
 import kotlin.time.Duration

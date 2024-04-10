@@ -3,7 +3,6 @@ package com.him.sama.spotifycompose.feature.home.component
 import android.annotation.SuppressLint
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.ExperimentalLayoutApi
 import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.Row
@@ -21,13 +20,15 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import coil.compose.AsyncImage
 import com.him.sama.spotifycompose.common.state.WindowSize
 import com.him.sama.spotifycompose.common.state.WindowType
+import com.him.sama.spotifycompose.feature.home.HomeDetailItem
 
 @OptIn(ExperimentalLayoutApi::class)
 @SuppressLint("UnusedBoxWithConstraintsScope")
 @Composable
-internal fun RecommendationSection(windowSize: WindowSize) {
+internal fun RecommendationSection(windowSize: WindowSize, items: List<HomeDetailItem>) {
     val maxItemsInEachRow = when (windowSize.width) {
         WindowType.Mobile -> {
             2
@@ -49,14 +50,17 @@ internal fun RecommendationSection(windowSize: WindowSize) {
         verticalArrangement = Arrangement.spacedBy(8.dp),
         horizontalArrangement = Arrangement.spacedBy(8.dp)
     ) {
-        repeat(12) {
-            RecommendationItem(widthFraction = widthFraction)
+        items.forEach {
+            RecommendationItem(
+                widthFraction = widthFraction,
+                data = it
+            )
         }
     }
 }
 
 @Composable
-private fun RecommendationItem(widthFraction: Float) {
+private fun RecommendationItem(widthFraction: Float, data: HomeDetailItem) {
     Row(
         modifier = Modifier
             .fillMaxWidth(widthFraction - 0.011f)
@@ -68,15 +72,17 @@ private fun RecommendationItem(widthFraction: Float) {
             .clip(shape = RoundedCornerShape(4.dp)),
         verticalAlignment = Alignment.CenterVertically
     ) {
-        Box(
+        AsyncImage(
             modifier = Modifier
                 .fillMaxHeight()
                 .width(56.dp)
-                .background(color = Color.LightGray)
+                .background(color = Color.LightGray),
+            model = data.image,
+            contentDescription = null,
         )
         Spacer(modifier = Modifier.width(8.dp))
         Text(
-            text = "Running test",
+            text = data.title,
             style = MaterialTheme.typography.bodySmall,
             color = Color.White
         )

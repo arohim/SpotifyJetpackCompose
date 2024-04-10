@@ -2,7 +2,7 @@ package com.him.sama.spotifycompose.common.core.data.mapper
 
 import arrow.core.nonFatalOrThrow
 import com.google.gson.Gson
-import com.him.sama.spotifycompose.common.core.core.Mapper
+import com.him.sama.spotifycompose.common.core.base.Mapper
 import com.him.sama.spotifycompose.common.core.data.remote.model.ErrorResponse
 import com.him.sama.spotifycompose.common.core.domain.model.UserError
 import okhttp3.ResponseBody

@@ -1,6 +1,6 @@
 package com.him.sama.spotifycompose.di
 
-import com.him.sama.spotifycompose.common.core.core.dispatcher.AppCoroutineDispatchers
+import com.him.sama.spotifycompose.common.core.base.dispatcher.AppCoroutineDispatchers
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import javax.inject.Inject

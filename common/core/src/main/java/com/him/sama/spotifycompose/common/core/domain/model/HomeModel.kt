@@ -1,51 +1,52 @@
 package com.him.sama.spotifycompose.common.core.domain.model
 
 import arrow.core.EitherNel
-import arrow.core.getOrElse
 import arrow.core.right
-import com.him.sama.spotifycompose.common.core.data.remote.model.HomeResponseDetailItem
 
-enum class HomeLayoutType {
+enum class HomeDomainLayoutType {
     GRID,
     ALBUM,
     PLAY_WIDGET
 }
 
-data class HomeModelItem(
-    val layoutType: HomeLayoutType,
+data class HomeDomainItem(
+    val layoutType: HomeDomainLayoutType,
     val title: String,
-    val items: List<HomeDetailItem> = listOf()
+    val items: List<HomeDomainDetailItem> = listOf()
 ) {
     companion object {
         fun create(
-            layoutType: HomeLayoutType?,
+            layoutType: HomeDomainLayoutType?,
             title: String,
-            items: List<HomeResponseDetailItem>
-        ): EitherNel<HomeValidationError, HomeModelItem> {
-            return HomeModelItem(
-                layoutType = layoutType ?: HomeLayoutType.ALBUM,
+            items: List<HomeDomainDetailItem>
+        ): EitherNel<HomeValidationError, HomeDomainItem> {
+            return HomeDomainItem(
+                layoutType = layoutType ?: HomeDomainLayoutType.ALBUM,
                 title = title,
-                items = items.map {
-                    HomeDetailItem.create(it).getOrElse { error("") }
-                }
+                items = items
             ).right()
         }
     }
 }
 
-data class HomeDetailItem(
+data class HomeDomainDetailItem(
     val image: String,
     val title: String,
     val categoryHierarchy: String,
     val categoryName: String
 ) {
     companion object {
-        fun create(item: HomeResponseDetailItem): EitherNel<HomeValidationError, HomeDetailItem> {
-            return HomeDetailItem(
-                image = item.image,
-                title = item.title,
-                categoryHierarchy = item.categoryHierarchy,
-                categoryName = item.categoryName
+        fun create(
+            image: String,
+            title: String,
+            categoryHierarchy: String,
+            categoryName: String
+        ): EitherNel<HomeValidationError, HomeDomainDetailItem> {
+            return HomeDomainDetailItem(
+                image = image,
+                title = title,
+                categoryHierarchy = categoryHierarchy,
+                categoryName = categoryName
             ).right()
         }
     }

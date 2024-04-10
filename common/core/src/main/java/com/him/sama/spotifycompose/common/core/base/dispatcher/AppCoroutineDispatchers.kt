@@ -1,4 +1,4 @@
-package com.him.sama.spotifycompose.common.core.core.dispatcher
+package com.him.sama.spotifycompose.common.core.base.dispatcher
 
 import kotlinx.coroutines.CoroutineDispatcher
 
