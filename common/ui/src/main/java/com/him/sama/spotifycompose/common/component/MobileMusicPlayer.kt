@@ -21,6 +21,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.him.sama.spotifycompose.common.ui.theme.AppTheme
+import com.him.sama.spotifycompose.common.ui.theme.on_background_background
 import com.him.sama.spotifycompose.common.ui.theme.secondary_background
 
 @Composable
@@ -33,7 +34,7 @@ fun MobileMusicPlayer() {
                 .fillMaxWidth()
                 .padding(horizontal = 16.dp)
                 .background(
-                    secondary_background,
+                    on_background_background,
                     shape = RoundedCornerShape(8.dp)
                 )
                 .padding(8.dp),

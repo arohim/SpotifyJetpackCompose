@@ -20,6 +20,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import com.him.sama.spotifycompose.common.ui.theme.background_color
+import com.him.sama.spotifycompose.common.ui.theme.on_background_background
 import com.him.sama.spotifycompose.common.ui.theme.tertiary_background
 
 @Composable
@@ -65,7 +66,7 @@ private fun TagItem(title: String, isSelected: Boolean) {
                 color = if (isSelected)
                     tertiary_background
                 else
-                    Color(0xFF4B524C),
+                    on_background_background,
                 shape = CircleShape
             )
             .padding(horizontal = 22.dp)

@@ -27,6 +27,7 @@ import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import com.him.sama.spotifycompose.common.state.WindowSize
 import com.him.sama.spotifycompose.common.state.WindowType
+import com.him.sama.spotifycompose.common.ui.theme.on_background_background
 import com.him.sama.spotifycompose.common.ui.theme.tertiary_background
 import com.him.sama.spotifycompose.feature.home.HomeDetailItem
 
@@ -76,7 +77,7 @@ private fun RecommendationItem(
             .fillMaxWidth(widthFraction - 0.011f)
             .height(56.dp)
             .background(
-                color = Color.LightGray.copy(alpha = 0.4f),
+                color = on_background_background,
                 shape = RoundedCornerShape(4.dp)
             )
             .clip(shape = RoundedCornerShape(4.dp)),

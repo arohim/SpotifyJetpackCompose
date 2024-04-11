@@ -31,6 +31,7 @@ data class HomeItem(
             HomeDetailItem(
                 image = it.image,
                 title = it.title,
+                description = it.description,
                 categoryHierarchy = it.categoryHierarchy,
                 categoryName = it.categoryName
             )
@@ -41,6 +42,7 @@ data class HomeItem(
 data class HomeDetailItem(
     val image: String,
     val title: String,
+    val description: String? = null,
     val categoryHierarchy: String,
     val categoryName: String
 )

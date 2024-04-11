@@ -20,13 +20,16 @@ import com.him.sama.spotifycompose.common.state.rememberWindowSize
 import com.him.sama.spotifycompose.common.ui.preview.MobilePreview
 import com.him.sama.spotifycompose.common.ui.theme.AppTheme
 import com.him.sama.spotifycompose.common.ui.theme.background_color
+import com.him.sama.spotifycompose.feature.home.HomeItem
 import com.him.sama.spotifycompose.feature.home.HomeLayoutType.ALBUM
 import com.him.sama.spotifycompose.feature.home.HomeLayoutType.GRID
 import com.him.sama.spotifycompose.feature.home.HomeLayoutType.PLAY_WIDGET
 import com.him.sama.spotifycompose.feature.home.HomeViewState
 import com.him.sama.spotifycompose.feature.home.component.Header
 import com.him.sama.spotifycompose.feature.home.component.HighlightedAlbum
+import com.him.sama.spotifycompose.feature.home.component.PickedForYou
 import com.him.sama.spotifycompose.feature.home.component.RecommendationSection
+import kotlinx.collections.immutable.persistentListOf
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
@@ -59,7 +62,9 @@ internal fun MobileHomeBody(windowSize: WindowSize, viewState: HomeViewState) {
                 when (it.layoutType) {
                     GRID -> item { RecommendationSection(windowSize, it.items) }
                     ALBUM -> item { HighlightedAlbum(it) }
-                    PLAY_WIDGET -> item { Text("PLAY_WIDGET", color = Color.White) }
+                    PLAY_WIDGET -> item {
+                        PickedForYou(data = it)
+                    }
                 }
             }
         }
@@ -70,6 +75,16 @@ internal fun MobileHomeBody(windowSize: WindowSize, viewState: HomeViewState) {
 @Composable
 private fun PreviewBody() {
     AppTheme {
-        MobileHomeBody(rememberWindowSize(), HomeViewState.initial())
+        var viewState = HomeViewState.initial()
+        viewState = viewState.copy(
+            isLoading = false,
+            homeItems = persistentListOf(
+                HomeItem(
+                    layoutType = PLAY_WIDGET,
+                    title = "Picked for you"
+                )
+            )
+        )
+        MobileHomeBody(rememberWindowSize(), viewState)
     }
 }

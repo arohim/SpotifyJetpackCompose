@@ -22,6 +22,7 @@ internal class HomeResponseToHomeDomainMapper @Inject constructor() :
                 HomeDomainDetailItem.create(
                     image = it.image ?: "",
                     title = it.title,
+                    description = it.description,
                     categoryHierarchy = it.categoryHierarchy ?: "",
                     categoryName = it.categoryName ?: ""
                 ).getOrElse { error("") }

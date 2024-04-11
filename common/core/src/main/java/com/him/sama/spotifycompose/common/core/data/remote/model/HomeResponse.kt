@@ -31,6 +31,9 @@ data class HomeResponseDetailItem(
     @field:SerializedName("title")
     val title: String,
 
+    @field:SerializedName("description")
+    val description: String? = null,
+
     @field:SerializedName("category_hierarchy")
     val categoryHierarchy: String? = "",
 

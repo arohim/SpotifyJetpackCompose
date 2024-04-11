@@ -35,6 +35,7 @@ data class HomeDomainItem(
 data class HomeDomainDetailItem(
     val image: String,
     val title: String,
+    val description: String? = null,
     val categoryHierarchy: String,
     val categoryName: String
 ) {
@@ -42,12 +43,14 @@ data class HomeDomainDetailItem(
         fun create(
             image: String,
             title: String,
+            description: String? = null,
             categoryHierarchy: String,
             categoryName: String
         ): EitherNel<HomeValidationError, HomeDomainDetailItem> {
             return HomeDomainDetailItem(
                 image = image,
                 title = title,
+                description = description,
                 categoryHierarchy = categoryHierarchy,
                 categoryName = categoryName
             ).right()

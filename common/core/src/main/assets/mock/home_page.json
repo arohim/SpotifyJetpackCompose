@@ -146,19 +146,10 @@
     "title": "Picked for you",
     "items": [
       {
-        "category_name": "Lifestyles & Health",
-        "title": "Mishary Rashid Alafasy",
-        "category_hierarchy": "Show * Muslim Central"
-      },
-      {
-        "category_name": "Educational",
-        "title": "The Standard Podcast",
-        "category_hierarchy": "Show * Muslim Central"
-      },
-      {
-        "category_name": "Business",
-        "title": "Mission to the Moon",
-        "category_hierarchy": "Show * Mission to the Moon"
+        "category_name": "",
+        "title": "Jazz in the Rain",
+        "description": "Sitting in a cozy café studying while the rain is pouring down outside.",
+        "image": "https://i.scdn.co/image/ab67706f00000002f46ec304be9222df641117a2"
       }
     ]
   }
