@@ -17,6 +17,7 @@ internal class HomeResponseToHomeDomainMapper @Inject constructor() :
         return HomeDomainItem.create(
             layoutType = HomeDomainLayoutType.valueOf(param.layoutType.name),
             title = param.title,
+            image = param.image,
             items = param.items.map {
                 HomeDomainDetailItem.create(
                     image = it.image ?: "",

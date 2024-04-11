@@ -16,6 +16,9 @@ data class HomeResponseItem(
     @field:SerializedName("title")
     val title: String,
 
+    @field:SerializedName("image")
+    val image: String? = null,
+
     @field:SerializedName("items")
     val items: List<HomeResponseDetailItem> = listOf()
 )

@@ -12,17 +12,27 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.unit.dp
+import com.him.sama.spotifycompose.common.core.domain.model.HomeDomainItem
+import com.him.sama.spotifycompose.common.core.domain.model.HomeDomainLayoutType
 import com.him.sama.spotifycompose.common.state.WindowSize
 import com.him.sama.spotifycompose.common.state.rememberWindowSize
 import com.him.sama.spotifycompose.common.ui.preview.TabletPreview
 import com.him.sama.spotifycompose.common.ui.theme.AppTheme
 import com.him.sama.spotifycompose.common.ui.theme.background_color
+import com.him.sama.spotifycompose.feature.home.HomeItem
 import com.him.sama.spotifycompose.feature.home.component.Header
 import com.him.sama.spotifycompose.feature.home.component.HighlightedAlbum
 import com.him.sama.spotifycompose.feature.home.component.RecommendationSection
 
 @Composable
 internal fun TabletHomeBody(windowSize: WindowSize) {
+    val item = HomeItem(
+        domain = HomeDomainItem(
+            layoutType = HomeDomainLayoutType.GRID,
+            title = "",
+            items = listOf()
+        )
+    )
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -36,9 +46,9 @@ internal fun TabletHomeBody(windowSize: WindowSize) {
         Spacer(modifier = Modifier.height(16.dp))
         RecommendationSection(windowSize, listOf())
         Spacer(modifier = Modifier.height(26.dp))
-        HighlightedAlbum()
-        HighlightedAlbum()
-        HighlightedAlbum()
+        HighlightedAlbum(item)
+        HighlightedAlbum(item)
+        HighlightedAlbum(item)
         Spacer(modifier = Modifier.height(56.dp))
     }
 }

@@ -20,11 +20,13 @@ enum class HomeLayoutType {
 data class HomeItem(
     val layoutType: HomeLayoutType,
     val title: String,
+    val image: String? = null,
     val items: List<HomeDetailItem> = listOf()
 ) {
     constructor(domain: HomeDomainItem) : this(
         layoutType = HomeLayoutType.valueOf(domain.layoutType.name),
         title = domain.title,
+        image = domain.image,
         items = domain.items.map {
             HomeDetailItem(
                 image = it.image,

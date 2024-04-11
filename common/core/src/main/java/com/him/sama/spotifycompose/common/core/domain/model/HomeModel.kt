@@ -12,17 +12,20 @@ enum class HomeDomainLayoutType {
 data class HomeDomainItem(
     val layoutType: HomeDomainLayoutType,
     val title: String,
+    val image: String? = null,
     val items: List<HomeDomainDetailItem> = listOf()
 ) {
     companion object {
         fun create(
             layoutType: HomeDomainLayoutType?,
             title: String,
+            image: String? = null,
             items: List<HomeDomainDetailItem>
         ): EitherNel<HomeValidationError, HomeDomainItem> {
             return HomeDomainItem(
                 layoutType = layoutType ?: HomeDomainLayoutType.ALBUM,
                 title = title,
+                image = image,
                 items = items
             ).right()
         }

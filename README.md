@@ -3,8 +3,11 @@
   <a href="https://android-arsenal.com/api?level=28"><img alt="API" src="https://img.shields.io/badge/API-28%2B-brightgreen.svg?style=flat"/></a>
 </p>
 
-## [In progress] Spotify clone (Mobile, Tablet, Television)
-This is Spotify clone built with jetpack compose supporting multiple screen size mobile, tablet and television
+## [In progress] Spotify clone using Jetpack Compose (Mobile, Tablet, Television)
+
+This is Spotify clone built with jetpack compose supporting multiple screen size mobile, tablet and
+television
+
 - MVI Clean Architecture
 - Unit Testing
 - UI Testing
@@ -16,7 +19,6 @@ This is Spotify clone built with jetpack compose supporting multiple screen size
 <img src="resources/mobile-2.png" alt="drawing" width="272" />
 <img src="resources/mobile-3.png" alt="drawing" width="272" />
 </p>
-
 
 ### 📷 Tablet screen shots
 

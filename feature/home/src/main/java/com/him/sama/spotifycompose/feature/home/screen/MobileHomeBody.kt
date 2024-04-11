@@ -58,7 +58,7 @@ internal fun MobileHomeBody(windowSize: WindowSize, viewState: HomeViewState) {
                 item { Spacer(modifier = Modifier.height(26.dp)) }
                 when (it.layoutType) {
                     GRID -> item { RecommendationSection(windowSize, it.items) }
-                    ALBUM -> item { HighlightedAlbum() }
+                    ALBUM -> item { HighlightedAlbum(it) }
                     PLAY_WIDGET -> item { Text("PLAY_WIDGET", color = Color.White) }
                 }
             }
