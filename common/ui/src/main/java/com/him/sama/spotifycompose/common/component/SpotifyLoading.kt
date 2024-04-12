@@ -7,7 +7,7 @@ import com.him.sama.spotifycompose.common.ui.theme.tertiary_background
 
 
 @Composable
-fun SpotifyCircleLoading(modifier: Modifier) {
+fun SpotifyCircleLoading(modifier: Modifier = Modifier) {
     CircularProgressIndicator(
         modifier = modifier.width(52.dp),
         color = tertiary_background,

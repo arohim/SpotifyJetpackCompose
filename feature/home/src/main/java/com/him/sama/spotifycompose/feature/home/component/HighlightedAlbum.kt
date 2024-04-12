@@ -12,6 +12,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
@@ -56,7 +57,7 @@ internal fun HighlightedAlbum(item: HomeItem) {
             )
             Spacer(modifier = Modifier.width(8.dp))
             Column(
-                modifier = Modifier.fillMaxHeight(),
+                modifier = Modifier.wrapContentHeight(),
                 verticalArrangement = Arrangement.SpaceEvenly,
             ) {
                 Text(
