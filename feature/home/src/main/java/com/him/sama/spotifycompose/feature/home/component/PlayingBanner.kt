@@ -2,7 +2,6 @@ package com.him.sama.spotifycompose.feature.home.component
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -14,8 +13,10 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import coil.compose.AsyncImage
 import com.him.sama.spotifycompose.common.ui.theme.nautral_50
 
 @Composable
@@ -32,8 +33,8 @@ internal fun PlayingBanner() {
             verticalArrangement = Arrangement.Center,
         ) {
             Text(
-                text = "AAAA",
-                style = MaterialTheme.typography.displayMedium,
+                text = "Jazz in the Rain",
+                style = MaterialTheme.typography.displaySmall,
                 color = Color.White
             )
             Text(
@@ -42,11 +43,13 @@ internal fun PlayingBanner() {
                 color = nautral_50
             )
         }
-        Box(
+        AsyncImage(
             modifier = Modifier
-                .padding(end = 56.dp)
                 .size(150.dp)
-                .background(Color.LightGray, RoundedCornerShape(8.dp))
+                .background(color = Color.LightGray, RoundedCornerShape(8.dp))
+                .clip(RoundedCornerShape(8.dp)),
+            model = "https://i.scdn.co/image/ab67706f00000002f46ec304be9222df641117a2",
+            contentDescription = null,
         )
     }
 }

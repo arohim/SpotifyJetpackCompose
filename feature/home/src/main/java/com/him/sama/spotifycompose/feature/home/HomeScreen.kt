@@ -65,7 +65,7 @@ fun HomeScreen(
     val windowSize = rememberWindowSize()
     when (windowSize.width) {
         WindowType.Mobile -> MobileHomeBody(windowSize, viewState)
-        WindowType.Television -> TelevisionHomeBody(windowSize)
+        WindowType.Television -> TelevisionHomeBody(windowSize, viewState)
         WindowType.Tablet -> TabletHomeBody(windowSize, viewState)
         WindowType.Automotive -> Text(
             text = "Automotive",
