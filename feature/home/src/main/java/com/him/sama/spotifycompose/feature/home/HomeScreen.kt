@@ -34,8 +34,18 @@ fun HomeScreen(
     val scope = rememberCoroutineScope()
     viewModel.singleEvent.collectInLaunchedEffectWithLifecycle { event ->
         when (event) {
-            is HomeSingleEvent.GetUsersError -> Toast.makeText(context, "GetUsersError", Toast.LENGTH_LONG).show()
-            is HomeSingleEvent.Refresh.Failure -> Toast.makeText(context, "Failure", Toast.LENGTH_LONG).show()
+            is HomeSingleEvent.GetUsersError -> Toast.makeText(
+                context,
+                "GetUsersError",
+                Toast.LENGTH_LONG
+            ).show()
+
+            is HomeSingleEvent.Refresh.Failure -> Toast.makeText(
+                context,
+                "Failure",
+                Toast.LENGTH_LONG
+            ).show()
+
             HomeSingleEvent.Refresh.Success -> {}
         }
     }
@@ -56,7 +66,7 @@ fun HomeScreen(
     when (windowSize.width) {
         WindowType.Mobile -> MobileHomeBody(windowSize, viewState)
         WindowType.Television -> TelevisionHomeBody(windowSize)
-        WindowType.Tablet -> TabletHomeBody(windowSize)
+        WindowType.Tablet -> TabletHomeBody(windowSize, viewState)
         WindowType.Automotive -> Text(
             text = "Automotive",
             style = MaterialTheme.typography.titleLarge,
