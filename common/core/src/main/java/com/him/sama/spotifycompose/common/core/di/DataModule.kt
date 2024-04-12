@@ -4,10 +4,12 @@ import arrow.core.EitherNel
 import com.him.sama.spotifycompose.common.core.base.Mapper
 import com.him.sama.spotifycompose.common.core.data.mapper.HomeResponseToHomeDomainMapper
 import com.him.sama.spotifycompose.common.core.data.mapper.NetworkErrorMapper
+import com.him.sama.spotifycompose.common.core.data.mapper.SearchPageResponseToSearchPageDomainMapper
 import com.him.sama.spotifycompose.common.core.data.remote.model.HomeResponseItem
+import com.him.sama.spotifycompose.common.core.data.remote.model.SearchPageResponse
 import com.him.sama.spotifycompose.common.core.data.repository.HomeRepositoryImpl
 import com.him.sama.spotifycompose.common.core.domain.model.HomeDomainItem
-import com.him.sama.spotifycompose.common.core.domain.model.HomeValidationError
+import com.him.sama.spotifycompose.common.core.domain.model.SearchPageDomainModel
 import com.him.sama.spotifycompose.common.core.domain.model.UserError
 import com.him.sama.spotifycompose.common.core.domain.repository.HomeRepository
 import dagger.Binds
@@ -26,7 +28,11 @@ internal abstract class DataModule {
 
     @Binds
     @Singleton
-    abstract fun homeResponseToHomeModelMapper(impl: HomeResponseToHomeDomainMapper): Mapper<HomeResponseItem, EitherNel<HomeValidationError, HomeDomainItem>>
+    abstract fun homeModelMapper(impl: HomeResponseToHomeDomainMapper): Mapper<HomeResponseItem, EitherNel<Nothing, HomeDomainItem>>
+
+    @Binds
+    @Singleton
+    abstract fun searchPageModelMapper(impl: SearchPageResponseToSearchPageDomainMapper): Mapper<SearchPageResponse, EitherNel<Nothing, SearchPageDomainModel>>
 
     @Binds
     abstract fun userErrorMapper(impl: NetworkErrorMapper): Mapper<Throwable, UserError>

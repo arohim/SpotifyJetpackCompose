@@ -7,13 +7,12 @@ import com.him.sama.spotifycompose.common.core.data.remote.model.HomeResponseIte
 import com.him.sama.spotifycompose.common.core.domain.model.HomeDomainDetailItem
 import com.him.sama.spotifycompose.common.core.domain.model.HomeDomainItem
 import com.him.sama.spotifycompose.common.core.domain.model.HomeDomainLayoutType
-import com.him.sama.spotifycompose.common.core.domain.model.HomeValidationError
 import javax.inject.Inject
 
 internal class HomeResponseToHomeDomainMapper @Inject constructor() :
-    Mapper<HomeResponseItem, EitherNel<HomeValidationError, HomeDomainItem>> {
+    Mapper<HomeResponseItem, EitherNel<Nothing, HomeDomainItem>> {
 
-    override fun invoke(param: HomeResponseItem): EitherNel<HomeValidationError, HomeDomainItem> {
+    override fun invoke(param: HomeResponseItem): EitherNel<Nothing, HomeDomainItem> {
         return HomeDomainItem.create(
             layoutType = HomeDomainLayoutType.valueOf(param.layoutType.name),
             title = param.title,

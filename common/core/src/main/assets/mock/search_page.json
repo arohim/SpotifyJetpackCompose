@@ -1,0 +1,96 @@
+{
+  "story": [
+    {
+      "title": "#soft piano",
+      "image": "https://i.scdn.co/image/ab67fb8200005caf474a477debc822a3a45c5acb"
+    },
+    {
+      "title": "#classical",
+      "image": "https://i.scdn.co/image/ab67fb8200005caf474a477debc822a3a45c5acb"
+    },
+    {
+      "title": "#soothing",
+      "image": "https://i.scdn.co/image/ab67fb8200005caf474a477debc822a3a45c5acb"
+    },
+    {
+      "title": "#soft piano",
+      "image": "https://i.scdn.co/image/ab67fb8200005caf474a477debc822a3a45c5acb"
+    },
+    {
+      "title": "#soft piano",
+      "image": "https://i.scdn.co/image/ab67fb8200005caf474a477debc822a3a45c5acb"
+    }
+  ],
+  "categories": [
+    {
+      "title": "Music",
+      "bg_color": "#dc148c",
+      "image": "https://i.scdn.co/image/ab67fb8200005caf474a477debc822a3a45c5acb"
+    },
+    {
+      "title": "Podcasts",
+      "bg_color": "#006450",
+      "image": "https://i.scdn.co/image/ab6765630000ba8a81f07e1ead0317ee3c285bfa"
+    },
+    {
+      "title": "Live Events",
+      "bg_color": "#8300e7",
+      "image": "https://concerts.spotifycdn.com/images/live-events_category-image.jpg"
+    },
+    {
+      "title": "Made For You",
+      "bg_color": "#1e3264",
+      "image": "https://t.scdn.co/images/ea364e99656e46a096ea1df50f581efe"
+    },
+    {
+      "title": "New Release",
+      "bg_color": "#e8115c",
+      "image": "https://i.scdn.co/image/ab67706f000000027ea4d505212b9de1f72c5112"
+    },
+    {
+      "title": "Thai Music",
+      "bg_color": "#e13500",
+      "image": "https://i.scdn.co/image/ab67fb8200005caf3435b2946088ed29632643bb"
+    },
+    {
+      "title": "Pop",
+      "bg_color": "#158a08",
+      "image": "https://i.scdn.co/image/ab67fb8200005cafa862ab80dd85682b37c4e768"
+    },
+    {
+      "title": "K-pop",
+      "bg_color": "#148a08",
+      "image": "https://i.scdn.co/image/ab67fb8200005caf013ee3c983e6f60bf28bad5a"
+    },
+    {
+      "title": "Hip-Hop",
+      "bg_color": "#503750",
+      "image": "https://i.scdn.co/image/ab67fb8200005caf9e3dea60be755ccd97b7351f"
+    },
+    {
+      "title": "Podcast Charts",
+      "bg_color": "#0d71ec",
+      "image": "https://t.scdn.co/images/7262179db37c498480ef06bfacb60310.jpeg"
+    },
+    {
+      "title": "Educational",
+      "bg_color": "#477d95",
+      "image": "https://i.scdn.co/image/ab67656300005f1fd464f18a416c86ede3a235a7"
+    },
+    {
+      "title": "Documentary",
+      "bg_color": "#503750",
+      "image": "https://i.scdn.co/image/ab6765630000ba8a2f514cde3ee9501e7ada4cf4"
+    },
+    {
+      "title": "Comedy",
+      "bg_color": "#af2896",
+      "image": "https://i.scdn.co/image/ab6765630000ba8a77d267a5accb8911a92668e1"
+    },
+    {
+      "title": "Charts",
+      "bg_color": "#8d67ab",
+      "image": "https://charts-images.scdn.co/assets/locale_en/regional/weekly/region_global_default.jpg"
+    }
+  ]
+}

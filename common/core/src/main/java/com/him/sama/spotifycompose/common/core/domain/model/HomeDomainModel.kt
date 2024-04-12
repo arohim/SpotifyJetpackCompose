@@ -21,7 +21,7 @@ data class HomeDomainItem(
             title: String,
             image: String? = null,
             items: List<HomeDomainDetailItem>
-        ): EitherNel<HomeValidationError, HomeDomainItem> {
+        ): EitherNel<Nothing, HomeDomainItem> {
             return HomeDomainItem(
                 layoutType = layoutType ?: HomeDomainLayoutType.ALBUM,
                 title = title,
@@ -46,7 +46,7 @@ data class HomeDomainDetailItem(
             description: String? = null,
             categoryHierarchy: String,
             categoryName: String
-        ): EitherNel<HomeValidationError, HomeDomainDetailItem> {
+        ): EitherNel<Nothing, HomeDomainDetailItem> {
             return HomeDomainDetailItem(
                 image = image,
                 title = title,
