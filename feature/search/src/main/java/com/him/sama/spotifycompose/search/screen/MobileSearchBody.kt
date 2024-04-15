@@ -54,7 +54,7 @@ fun MobileSearchBody(windowSize: WindowSize, viewState: SearchViewState) {
                 }
             } else {
                 item {
-                    ShortVideoList(viewState.data.story)
+                    ShortVideoList(windowSize, viewState.data.story)
                 }
                 item { Spacer(modifier = Modifier.height(16.dp)) }
                 item {

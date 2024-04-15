@@ -19,6 +19,14 @@
     {
       "title": "#soft piano",
       "image": "https://i.pinimg.com/736x/a1/6e/12/a16e122a78b37b0b45ed009c7b527853.jpg"
+    },
+    {
+      "title": "#soft piano",
+      "image": "https://i.pinimg.com/736x/82/08/10/8208103c731dc69d7d10d8f9709b872a.jpg"
+    },
+    {
+      "title": "#classical",
+      "image": "https://i.pinimg.com/736x/47/5b/72/475b72acb3f65dd57e938e4eab8ac895.jpg"
     }
   ],
   "categories": [
@@ -91,6 +99,16 @@
       "title": "Charts",
       "bg_color": "#8d67ab",
       "image": "https://charts-images.scdn.co/assets/locale_en/regional/weekly/region_global_default.jpg"
+    },
+    {
+      "title": "Thai Music",
+      "bg_color": "#e13500",
+      "image": "https://i.scdn.co/image/ab67fb8200005caf3435b2946088ed29632643bb"
+    },
+    {
+      "title": "Pop",
+      "bg_color": "#158a08",
+      "image": "https://i.scdn.co/image/ab67fb8200005cafa862ab80dd85682b37c4e768"
     }
   ]
 }

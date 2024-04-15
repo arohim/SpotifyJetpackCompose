@@ -21,6 +21,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.layout.ContentScale
@@ -28,16 +29,21 @@ import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
+import com.him.sama.spotifycompose.common.state.WindowSize
+import com.him.sama.spotifycompose.common.state.WindowType
 import com.him.sama.spotifycompose.common.ui.theme.AppTheme
 import com.him.sama.spotifycompose.search.StoryItemModel
 
 @Composable
-fun ShortVideoList(story: List<StoryItemModel>) {
+fun ShortVideoList(windowSize: WindowSize, story: List<StoryItemModel>) {
     val configuration = LocalConfiguration.current
     val screenWidth by remember(key1 = configuration) {
         mutableIntStateOf(configuration.screenWidthDp)
     }
-    val itemWidth = ((screenWidth - (16 * 4)) / 3).dp
+    val itemWidth = when (windowSize.width) {
+        WindowType.Mobile -> ((screenWidth - (16 * 4)) / 3).dp
+        else -> 115.dp
+    }
 
     Column(
         modifier = Modifier
@@ -75,6 +81,22 @@ fun ShortVideoList(story: List<StoryItemModel>) {
                         contentScale = ContentScale.Crop,
                         contentDescription = null
                     )
+                    Box(
+                        modifier = Modifier
+                            .align(Alignment.BottomStart)
+                            .width(itemWidth)
+                            .height(100.dp)
+                            .background(
+                                brush = Brush.verticalGradient(
+                                    colors = listOf(
+                                        Color.Transparent,
+                                        Color.Black.copy(alpha = 0.8f)
+                                    )
+                                ),
+                                shape = RoundedCornerShape(16.dp)
+                            )
+                            .clip(RoundedCornerShape(16.dp))
+                    )
                     Text(
                         modifier = Modifier
                             .align(Alignment.BottomStart)
@@ -96,6 +118,7 @@ fun ShortVideoList(story: List<StoryItemModel>) {
 private fun PreviewShortVideoList() {
     AppTheme {
         ShortVideoList(
+            WindowSize(width = WindowType.Mobile, height = WindowType.Mobile),
             listOf(
                 StoryItemModel(title = "#test test test test", image = ""),
                 StoryItemModel(title = "#test", image = ""),
