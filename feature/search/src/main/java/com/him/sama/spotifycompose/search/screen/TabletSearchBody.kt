@@ -17,6 +17,7 @@ import com.him.sama.spotifycompose.common.state.WindowSize
 import com.him.sama.spotifycompose.common.state.rememberWindowSize
 import com.him.sama.spotifycompose.common.ui.preview.TabletPreview
 import com.him.sama.spotifycompose.common.ui.theme.AppTheme
+import com.him.sama.spotifycompose.search.SearchViewState
 import com.him.sama.spotifycompose.search.component.CategoryList
 import com.him.sama.spotifycompose.search.component.Header
 import com.him.sama.spotifycompose.search.component.WhiteSearchBox
@@ -24,7 +25,7 @@ import com.him.sama.spotifycompose.search.component.ShortVideoList
 
 @Composable
 @OptIn(ExperimentalFoundationApi::class)
-fun TabletSearchBody(windowSize: WindowSize) {
+fun TabletSearchBody(windowSize: WindowSize, viewState: SearchViewState) {
     Scaffold(
         containerColor = Color.Black
     ) {
@@ -40,11 +41,11 @@ fun TabletSearchBody(windowSize: WindowSize) {
             stickyHeader { WhiteSearchBox() }
             item { Spacer(modifier = Modifier.height(16.dp)) }
             item {
-                ShortVideoList()
+                ShortVideoList(viewState.data.story)
             }
             item { Spacer(modifier = Modifier.height(16.dp)) }
             item {
-                CategoryList(windowSize)
+                CategoryList(windowSize, viewState.data.categories)
             }
         }
     }
@@ -54,6 +55,6 @@ fun TabletSearchBody(windowSize: WindowSize) {
 @Composable
 private fun PreviewSearchScreen() {
     AppTheme {
-        TabletSearchBody(rememberWindowSize())
+        TabletSearchBody(rememberWindowSize(), SearchViewState.initial())
     }
 }

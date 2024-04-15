@@ -5,7 +5,7 @@ import arrow.core.right
 
 data class SearchPageDomainModel(
     val categories: List<CategoryDomainModel> = listOf(),
-    val story: List<StoryItemDomainModel?> = listOf()
+    val story: List<StoryItemDomainModel> = listOf()
 ) {
     companion object {
         fun create(

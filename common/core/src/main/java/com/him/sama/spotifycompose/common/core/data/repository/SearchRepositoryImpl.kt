@@ -9,6 +9,7 @@ import arrow.core.right
 import com.him.sama.spotifycompose.common.core.base.Mapper
 import com.him.sama.spotifycompose.common.core.base.dispatcher.AppCoroutineDispatchers
 import com.him.sama.spotifycompose.common.core.base.retrySuspend
+import com.him.sama.spotifycompose.common.core.data.mapper.SearchPageResponseToSearchPageDomainMapper
 import com.him.sama.spotifycompose.common.core.data.remote.model.SearchPageResponse
 import com.him.sama.spotifycompose.common.core.data.remote.service.ApiService
 import com.him.sama.spotifycompose.common.core.domain.model.SearchPageDomainModel
@@ -28,7 +29,7 @@ import kotlin.time.toDuration
 class SearchRepositoryImpl @Inject constructor(
     private val apiService: ApiService,
     private val dispatchers: AppCoroutineDispatchers,
-    private val responseToDomain: Mapper<SearchPageResponse, EitherNel<Nothing, SearchPageDomainModel>>,
+    private val responseToDomain: SearchPageResponseToSearchPageDomainMapper,
     private val errorMapper: Mapper<Throwable, UserError>
 ) : SearchRepository {
 

@@ -4,24 +4,41 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.graphicsLayer
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalConfiguration
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import coil.compose.AsyncImage
+import com.him.sama.spotifycompose.common.ui.theme.AppTheme
+import com.him.sama.spotifycompose.search.StoryItemModel
 
 @Composable
-fun ShortVideoList() {
+fun ShortVideoList(story: List<StoryItemModel>) {
+    val configuration = LocalConfiguration.current
+    val screenWidth by remember(key1 = configuration) {
+        mutableIntStateOf(configuration.screenWidthDp)
+    }
+    val itemWidth = ((screenWidth - (16 * 4)) / 3).dp
+
     Column(
         modifier = Modifier
             .fillMaxWidth()
@@ -35,39 +52,55 @@ fun ShortVideoList() {
             color = MaterialTheme.colorScheme.onPrimary
         )
         Spacer(modifier = Modifier.height(16.dp))
-        Row(
-            modifier = Modifier.fillMaxWidth(),
-            verticalAlignment = Alignment.CenterVertically
+        LazyRow(
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(200.dp),
+            horizontalArrangement = Arrangement.spacedBy(16.dp)
         ) {
-            Box(
-                modifier = Modifier
-                    .width(115.dp)
-                    .height(200.dp)
-                    .background(
-                        Color.LightGray,
-                        shape = RoundedCornerShape(16.dp)
+            items(story, itemContent = {
+                Box(
+                    modifier = Modifier,
+                ) {
+                    AsyncImage(
+                        modifier = Modifier
+                            .width(itemWidth)
+                            .height(200.dp)
+                            .background(
+                                Color.LightGray,
+                                shape = RoundedCornerShape(16.dp)
+                            )
+                            .clip(RoundedCornerShape(16.dp)),
+                        model = it.image,
+                        contentScale = ContentScale.Crop,
+                        contentDescription = null
                     )
-            )
-            Spacer(modifier = Modifier.width(16.dp))
-            Box(
-                modifier = Modifier
-                    .width(115.dp)
-                    .height(200.dp)
-                    .background(
-                        Color.LightGray,
-                        shape = RoundedCornerShape(16.dp)
+                    Text(
+                        modifier = Modifier
+                            .align(Alignment.BottomStart)
+                            .width(itemWidth)
+                            .padding(bottom = 8.dp, start = 8.dp, end = 8.dp),
+                        text = it.title,
+                        maxLines = 2,
+                        style = MaterialTheme.typography.labelLarge,
+                        color = Color.White
                     )
-            )
-            Spacer(modifier = Modifier.width(16.dp))
-            Box(
-                modifier = Modifier
-                    .width(115.dp)
-                    .height(200.dp)
-                    .background(
-                        Color.LightGray,
-                        shape = RoundedCornerShape(16.dp)
-                    )
-            )
+                }
+            })
         }
+    }
+}
+
+@Preview
+@Composable
+private fun PreviewShortVideoList() {
+    AppTheme {
+        ShortVideoList(
+            listOf(
+                StoryItemModel(title = "#test test test test", image = ""),
+                StoryItemModel(title = "#test", image = ""),
+                StoryItemModel(title = "#test", image = "")
+            )
+        )
     }
 }

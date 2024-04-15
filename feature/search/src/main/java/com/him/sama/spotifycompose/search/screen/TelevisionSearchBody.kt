@@ -33,10 +33,11 @@ import com.him.sama.spotifycompose.common.ui.preview.TelevisionPreview
 import com.him.sama.spotifycompose.common.ui.theme.AppTheme
 import com.him.sama.spotifycompose.common.ui.theme.background_color
 import com.him.sama.spotifycompose.common.ui.theme.title_text_color
+import com.him.sama.spotifycompose.search.SearchViewState
 import com.him.sama.spotifycompose.search.component.BlackSearchBox
 
 @Composable
-fun TelevisionSearchBody(windowSize: WindowSize) {
+fun TelevisionSearchBody(windowSize: WindowSize, viewState: SearchViewState) {
     Scaffold(
         containerColor = background_color
     ) {
@@ -117,6 +118,6 @@ fun TelevisionSearchCategory(windowSize: WindowSize) {
 @Composable
 private fun PreviewSearchScreen() {
     AppTheme {
-        TelevisionSearchBody(rememberWindowSize())
+        TelevisionSearchBody(rememberWindowSize(), SearchViewState.initial())
     }
 }

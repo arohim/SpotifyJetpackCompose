@@ -9,7 +9,7 @@ import com.him.sama.spotifycompose.common.core.domain.model.SearchPageDomainMode
 import com.him.sama.spotifycompose.common.core.domain.model.StoryItemDomainModel
 import javax.inject.Inject
 
-internal class SearchPageResponseToSearchPageDomainMapper @Inject constructor() :
+class SearchPageResponseToSearchPageDomainMapper @Inject constructor() :
     Mapper<SearchPageResponse, EitherNel<Nothing, SearchPageDomainModel>> {
 
     override fun invoke(param: SearchPageResponse): EitherNel<Nothing, SearchPageDomainModel> {

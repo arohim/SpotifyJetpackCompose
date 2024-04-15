@@ -9,7 +9,7 @@ import com.him.sama.spotifycompose.common.core.domain.model.HomeDomainItem
 import com.him.sama.spotifycompose.common.core.domain.model.HomeDomainLayoutType
 import javax.inject.Inject
 
-internal class HomeResponseToHomeDomainMapper @Inject constructor() :
+class HomeResponseToHomeDomainMapper @Inject constructor() :
     Mapper<HomeResponseItem, EitherNel<Nothing, HomeDomainItem>> {
 
     override fun invoke(param: HomeResponseItem): EitherNel<Nothing, HomeDomainItem> {
