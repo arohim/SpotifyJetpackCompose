@@ -27,9 +27,10 @@ import com.him.sama.spotifycompose.common.ui.R
 import com.him.sama.spotifycompose.common.ui.preview.TelevisionPreview
 import com.him.sama.spotifycompose.common.ui.theme.AppTheme
 import com.him.sama.spotifycompose.common.ui.theme.background_color
+import com.him.sama.spotifycompose.yourlibrary.YourLibraryViewState
 
 @Composable
-fun TelevisionYourLibraryBody() {
+fun TelevisionYourLibraryBody(viewState: YourLibraryViewState) {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -130,6 +131,6 @@ private fun TelevisionCategoryItem() {
 @Composable
 private fun PreviewBody() {
     AppTheme {
-        TelevisionYourLibraryBody()
+        TelevisionYourLibraryBody(YourLibraryViewState.initial())
     }
 }

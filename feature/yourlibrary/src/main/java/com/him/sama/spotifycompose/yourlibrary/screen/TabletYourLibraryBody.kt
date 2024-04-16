@@ -25,12 +25,13 @@ import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.unit.dp
 import com.him.sama.spotifycompose.common.ui.theme.nautral_50
+import com.him.sama.spotifycompose.yourlibrary.YourLibraryViewState
 import com.him.sama.spotifycompose.yourlibrary.component.Filter
 import com.him.sama.spotifycompose.yourlibrary.component.MobileHeader
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
-fun TabletYourLibraryBody() {
+fun TabletYourLibraryBody(viewState: YourLibraryViewState) {
     Scaffold(
         containerColor = Color.Black
     ) {
