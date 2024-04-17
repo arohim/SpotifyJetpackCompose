@@ -1,5 +1,6 @@
 package com.him.sama.spotifycompose.yourlibrary.component
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -18,7 +19,7 @@ import androidx.compose.ui.unit.dp
 import com.him.sama.spotifycompose.common.ui.R
 
 @Composable
-internal fun Filter() {
+internal fun Filter(onToggleGrid: () -> Unit) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
@@ -39,7 +40,8 @@ internal fun Filter() {
         )
         Spacer(modifier = Modifier.weight(1f))
         Icon(
-            modifier = Modifier.size(16.dp),
+            modifier = Modifier.size(16.dp)
+                .clickable(onClick = onToggleGrid),
             painter = painterResource(id = R.drawable.baseline_grid_view_24),
             contentDescription = null,
             tint = Color.White
