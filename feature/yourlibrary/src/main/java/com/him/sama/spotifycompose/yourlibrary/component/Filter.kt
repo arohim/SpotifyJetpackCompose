@@ -16,10 +16,31 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
+import com.him.sama.spotifycompose.common.state.WindowSize
+import com.him.sama.spotifycompose.common.state.WindowType
 import com.him.sama.spotifycompose.common.ui.R
 
 @Composable
-internal fun Filter(onToggleGrid: () -> Unit) {
+internal fun Filter(
+    windowSize: WindowSize,
+    showGrid: Boolean = false,
+    onToggleGrid: (() -> Unit)? = null
+) {
+    val iconSize = when (windowSize.width) {
+        WindowType.Automotive, WindowType.Mobile -> 16.dp
+        WindowType.Television, WindowType.Tablet -> 24.dp
+    }
+    val fontSize = when (windowSize.width) {
+        WindowType.Automotive, WindowType.Mobile -> MaterialTheme.typography.labelMedium
+        WindowType.Television, WindowType.Tablet -> MaterialTheme.typography.bodyLarge
+    }
+
+    val sortingIcon = if (showGrid) {
+        R.drawable.baseline_format_list_bulleted_24
+    } else {
+        R.drawable.baseline_grid_view_24
+    }
+
     Row(
         modifier = Modifier
             .fillMaxWidth()
@@ -27,24 +48,27 @@ internal fun Filter(onToggleGrid: () -> Unit) {
         verticalAlignment = Alignment.CenterVertically
     ) {
         Icon(
-            modifier = Modifier.size(16.dp),
-            painter = painterResource(id = R.drawable.baseline_sort_24),
+            modifier = Modifier.size(iconSize),
+            painter = painterResource(id = R.drawable.baseline_import_export_24),
             contentDescription = null,
             tint = Color.White
         )
-        Spacer(modifier = Modifier.width(16.dp))
+        Spacer(modifier = Modifier.width(8.dp))
         Text(
-            text = "Recents",
-            style = MaterialTheme.typography.labelMedium,
+            text = "Recent",
+            style = fontSize,
             color = MaterialTheme.colorScheme.onPrimary
         )
         Spacer(modifier = Modifier.weight(1f))
-        Icon(
-            modifier = Modifier.size(16.dp)
-                .clickable(onClick = onToggleGrid),
-            painter = painterResource(id = R.drawable.baseline_grid_view_24),
-            contentDescription = null,
-            tint = Color.White
-        )
+        if (onToggleGrid != null) {
+            Icon(
+                modifier = Modifier
+                    .size(16.dp)
+                    .clickable(onClick = onToggleGrid),
+                painter = painterResource(id = sortingIcon),
+                contentDescription = null,
+                tint = Color.White
+            )
+        }
     }
 }

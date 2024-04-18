@@ -30,6 +30,12 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.unit.dp
+import com.him.sama.spotifycompose.common.state.WindowSize
+import com.him.sama.spotifycompose.common.state.rememberWindowSize
+import com.him.sama.spotifycompose.common.ui.preview.MobilePreview
+import com.him.sama.spotifycompose.common.ui.theme.AppTheme
+import com.him.sama.spotifycompose.yourlibrary.RecentItemModel
+import com.him.sama.spotifycompose.yourlibrary.YourLibraryModel
 import com.him.sama.spotifycompose.yourlibrary.YourLibraryViewState
 import com.him.sama.spotifycompose.yourlibrary.component.Filter
 import com.him.sama.spotifycompose.yourlibrary.component.MobileHeader
@@ -38,9 +44,9 @@ import com.him.sama.spotifycompose.yourlibrary.component.YourLibraryItem
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
-fun MobileYourLibraryBody(viewState: YourLibraryViewState) {
+fun MobileYourLibraryBody(windowSize: WindowSize, viewState: YourLibraryViewState) {
     var showGrid by remember {
-        mutableStateOf(false)
+        mutableStateOf(true)
     }
     Scaffold(
         containerColor = Color.Black
@@ -58,7 +64,7 @@ fun MobileYourLibraryBody(viewState: YourLibraryViewState) {
                         .background(Color.Black),
                 ) {
                     MobileHeader()
-                    Filter {
+                    Filter(windowSize = windowSize, showGrid) {
                         showGrid = !showGrid
                     }
                     Spacer(modifier = Modifier.height(8.dp))
@@ -98,15 +104,67 @@ private fun GridView(viewState: YourLibraryViewState) {
             .fillMaxWidth()
             .padding(horizontal = 16.dp),
         maxItemsInEachRow = 3,
-        verticalArrangement = Arrangement.spacedBy(16.dp),
-        horizontalArrangement = Arrangement.spacedBy(16.dp)
+        verticalArrangement = Arrangement.spacedBy(24.dp),
+        horizontalArrangement = Arrangement.spacedBy(24.dp)
     ) {
         viewState.data.recent.forEachIndexed { i, item ->
             YourLibraryGridItem(
-                modifier = Modifier.fillMaxWidth(widthFraction - 0.0278f),
+                modifier = Modifier.fillMaxWidth(widthFraction - 0.04209f),
                 image = item.image,
                 title = item.title
             )
         }
+    }
+}
+
+
+@MobilePreview
+@Composable
+private fun PreviewBody() {
+    AppTheme {
+        var viewState = YourLibraryViewState.initial()
+        viewState = viewState.copy(
+            isLoading = false,
+            data = YourLibraryModel(
+                recent = listOf(
+                    RecentItemModel(
+                        categoryHierarchy = "playlist * playlist",
+                        image = "https://i.scdn.co/image/ab67706f00000002f46ec304be9222df641117a2",
+                        title = "Title"
+                    ),
+                    RecentItemModel(
+                        categoryHierarchy = "playlist * playlist",
+                        image = "https://i.scdn.co/image/ab67706f00000002f46ec304be9222df641117a2",
+                        title = "Title"
+                    ),
+                    RecentItemModel(
+                        categoryHierarchy = "playlist * playlist",
+                        image = "https://i.scdn.co/image/ab67706f00000002f46ec304be9222df641117a2",
+                        title = "Title"
+                    ),
+                    RecentItemModel(
+                        categoryHierarchy = "playlist * playlist",
+                        image = "https://i.scdn.co/image/ab67706f00000002f46ec304be9222df641117a2",
+                        title = "Title"
+                    ),
+                    RecentItemModel(
+                        categoryHierarchy = "playlist * playlist",
+                        image = "https://i.scdn.co/image/ab67706f00000002f46ec304be9222df641117a2",
+                        title = "Title"
+                    ),
+                    RecentItemModel(
+                        categoryHierarchy = "playlist * playlist",
+                        image = "https://i.scdn.co/image/ab67706f00000002f46ec304be9222df641117a2",
+                        title = "Title"
+                    ),
+                    RecentItemModel(
+                        categoryHierarchy = "playlist * playlist",
+                        image = "https://i.scdn.co/image/ab67706f00000002f46ec304be9222df641117a2",
+                        title = "Title"
+                    )
+                )
+            )
+        )
+        MobileYourLibraryBody(rememberWindowSize(), viewState)
     }
 }

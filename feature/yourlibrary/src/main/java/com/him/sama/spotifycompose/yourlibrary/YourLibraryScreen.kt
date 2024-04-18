@@ -38,9 +38,9 @@ fun YourLibraryScreen(
 
     val windowSize = rememberWindowSize()
     when (windowSize.width) {
-        WindowType.Mobile -> MobileYourLibraryBody(viewState)
+        WindowType.Mobile -> MobileYourLibraryBody(windowSize, viewState)
         WindowType.Television -> TelevisionYourLibraryBody(viewState)
-        WindowType.Tablet -> TabletYourLibraryBody(viewState)
+        WindowType.Tablet -> TabletYourLibraryBody(windowSize, viewState)
         WindowType.Automotive -> Text(text = "Automotive")
     }
 }

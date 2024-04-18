@@ -37,7 +37,6 @@ fun TabletSearchBody(windowSize: WindowSize, viewState: SearchViewState) {
             modifier = Modifier
                 .padding(it)
                 .padding(horizontal = 120.dp)
-                .padding(bottom = 56.dp)
                 .graphicsLayer(clip = false)
                 .clip(RectangleShape)
         ) {
@@ -63,6 +62,7 @@ fun TabletSearchBody(windowSize: WindowSize, viewState: SearchViewState) {
                     CategoryList(windowSize, viewState.data.categories)
                 }
             }
+            item { Spacer(modifier = Modifier.height(16.dp)) }
         }
     }
 }

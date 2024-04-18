@@ -6,7 +6,6 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -18,6 +17,8 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
+import com.him.sama.spotifycompose.common.state.WindowType
+import com.him.sama.spotifycompose.common.state.rememberWindowSize
 import com.him.sama.spotifycompose.common.ui.theme.unselected_color
 
 @Composable
@@ -26,6 +27,12 @@ fun YourLibraryGridItem(
     image: String,
     title: String
 ) {
+    val windowSize = rememberWindowSize()
+    val textStyle = when (windowSize.width) {
+        WindowType.Automotive, WindowType.Mobile -> MaterialTheme.typography.bodyLarge
+        WindowType.Television, WindowType.Tablet -> MaterialTheme.typography.bodyLarge
+    }
+
     Column(
         modifier = modifier,
         verticalArrangement = Arrangement.Center,
@@ -45,7 +52,7 @@ fun YourLibraryGridItem(
         Spacer(modifier = Modifier.height(8.dp))
         Text(
             text = title,
-            style = MaterialTheme.typography.labelMedium,
+            style = textStyle,
             overflow = TextOverflow.Ellipsis,
             maxLines = 2,
             color = unselected_color
