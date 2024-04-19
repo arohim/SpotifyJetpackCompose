@@ -4,11 +4,14 @@ import com.google.gson.annotations.SerializedName
 
 data class YourLibraryResponse(
 
-    @field:SerializedName("recent")
-    val recent: List<RecentItem>
+    @field:SerializedName("title")
+    val title: String,
+
+    @field:SerializedName("items")
+    val items: List<YourLibraryItem>
 )
 
-data class RecentItem(
+data class YourLibraryItem(
 
     @field:SerializedName("category_hierarchy")
     val categoryHierarchy: String,

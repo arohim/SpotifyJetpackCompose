@@ -4,18 +4,23 @@ import arrow.core.EitherNel
 import arrow.core.right
 
 data class YourLibraryDomainModel(
-    val recent: List<RecentItemDomainModel>
+    val title: String,
+    val items: List<YourLibraryItemDomainModel>
 ) {
     companion object {
-        fun create(recent: List<RecentItemDomainModel>): EitherNel<Nothing, YourLibraryDomainModel> {
+        fun create(
+            title: String,
+            items: List<YourLibraryItemDomainModel>
+        ): EitherNel<Nothing, YourLibraryDomainModel> {
             return YourLibraryDomainModel(
-                recent = recent
+                title = title,
+                items = items
             ).right()
         }
     }
 }
 
-data class RecentItemDomainModel(
+data class YourLibraryItemDomainModel(
     val categoryHierarchy: String,
     val image: String,
     val title: String
@@ -25,8 +30,8 @@ data class RecentItemDomainModel(
             categoryHierarchy: String,
             image: String,
             title: String
-        ): EitherNel<Nothing, RecentItemDomainModel> {
-            return RecentItemDomainModel(
+        ): EitherNel<Nothing, YourLibraryItemDomainModel> {
+            return YourLibraryItemDomainModel(
                 categoryHierarchy = categoryHierarchy,
                 image = image,
                 title = title

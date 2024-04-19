@@ -27,7 +27,7 @@ import com.him.sama.spotifycompose.common.state.WindowSize
 import com.him.sama.spotifycompose.common.state.rememberWindowSize
 import com.him.sama.spotifycompose.common.ui.preview.TabletPreview
 import com.him.sama.spotifycompose.common.ui.theme.AppTheme
-import com.him.sama.spotifycompose.yourlibrary.RecentItemModel
+import com.him.sama.spotifycompose.yourlibrary.YourLibraryItemModel
 import com.him.sama.spotifycompose.yourlibrary.YourLibraryModel
 import com.him.sama.spotifycompose.yourlibrary.YourLibraryViewState
 import com.him.sama.spotifycompose.yourlibrary.component.Filter
@@ -82,7 +82,7 @@ private fun GridView(viewState: YourLibraryViewState) {
         verticalArrangement = Arrangement.spacedBy(24.dp),
         horizontalArrangement = Arrangement.spacedBy(24.dp)
     ) {
-        viewState.data.recent.forEachIndexed { i, item ->
+        viewState.data.items.forEachIndexed { i, item ->
             YourLibraryGridItem(
                 modifier = Modifier.fillMaxWidth(widthFraction - 0.02f),
                 image = item.image,
@@ -100,38 +100,38 @@ private fun PreviewBody() {
         viewState = viewState.copy(
             isLoading = false,
             data = YourLibraryModel(
-                recent = listOf(
-                    RecentItemModel(
+                items = listOf(
+                    YourLibraryItemModel(
                         categoryHierarchy = "playlist * playlist",
                         image = "https://i.scdn.co/image/ab67706f00000002f46ec304be9222df641117a2",
                         title = "Title"
                     ),
-                    RecentItemModel(
+                    YourLibraryItemModel(
                         categoryHierarchy = "playlist * playlist",
                         image = "https://i.scdn.co/image/ab67706f00000002f46ec304be9222df641117a2",
                         title = "Title"
                     ),
-                    RecentItemModel(
+                    YourLibraryItemModel(
                         categoryHierarchy = "playlist * playlist",
                         image = "https://i.scdn.co/image/ab67706f00000002f46ec304be9222df641117a2",
                         title = "Title"
                     ),
-                    RecentItemModel(
+                    YourLibraryItemModel(
                         categoryHierarchy = "playlist * playlist",
                         image = "https://i.scdn.co/image/ab67706f00000002f46ec304be9222df641117a2",
                         title = "Title"
                     ),
-                    RecentItemModel(
+                    YourLibraryItemModel(
                         categoryHierarchy = "playlist * playlist",
                         image = "https://i.scdn.co/image/ab67706f00000002f46ec304be9222df641117a2",
                         title = "Title"
                     ),
-                    RecentItemModel(
+                    YourLibraryItemModel(
                         categoryHierarchy = "playlist * playlist",
                         image = "https://i.scdn.co/image/ab67706f00000002f46ec304be9222df641117a2",
                         title = "Title"
                     ),
-                    RecentItemModel(
+                    YourLibraryItemModel(
                         categoryHierarchy = "playlist * playlist",
                         image = "https://i.scdn.co/image/ab67706f00000002f46ec304be9222df641117a2",
                         title = "Title"

@@ -26,6 +26,6 @@ interface ApiService {
     @MockResponse(code = 200, body = "mock/your_library_page.json")
     @MockBehavior(durationDeviation = 1000, durationMillis = 1000)
     @GET("/your_library")
-    suspend fun getYourLibrary(): YourLibraryResponse
+    suspend fun getYourLibrary(): List<YourLibraryResponse>
 
 }

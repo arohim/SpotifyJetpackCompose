@@ -34,7 +34,7 @@ import com.him.sama.spotifycompose.common.state.WindowSize
 import com.him.sama.spotifycompose.common.state.rememberWindowSize
 import com.him.sama.spotifycompose.common.ui.preview.MobilePreview
 import com.him.sama.spotifycompose.common.ui.theme.AppTheme
-import com.him.sama.spotifycompose.yourlibrary.RecentItemModel
+import com.him.sama.spotifycompose.yourlibrary.YourLibraryItemModel
 import com.him.sama.spotifycompose.yourlibrary.YourLibraryModel
 import com.him.sama.spotifycompose.yourlibrary.YourLibraryViewState
 import com.him.sama.spotifycompose.yourlibrary.component.Filter
@@ -46,7 +46,7 @@ import com.him.sama.spotifycompose.yourlibrary.component.YourLibraryItem
 @Composable
 fun MobileYourLibraryBody(windowSize: WindowSize, viewState: YourLibraryViewState) {
     var showGrid by remember {
-        mutableStateOf(true)
+        mutableStateOf(false)
     }
     Scaffold(
         containerColor = Color.Black
@@ -86,7 +86,7 @@ fun MobileYourLibraryBody(windowSize: WindowSize, viewState: YourLibraryViewStat
                         GridView(viewState)
                     }
                 } else {
-                    items(viewState.data.recent, itemContent = {
+                    items(viewState.data.items, itemContent = {
                         YourLibraryItem(it)
                         Spacer(modifier = Modifier.height(16.dp))
                     })
@@ -107,7 +107,7 @@ private fun GridView(viewState: YourLibraryViewState) {
         verticalArrangement = Arrangement.spacedBy(24.dp),
         horizontalArrangement = Arrangement.spacedBy(24.dp)
     ) {
-        viewState.data.recent.forEachIndexed { i, item ->
+        viewState.data.items.forEachIndexed { i, item ->
             YourLibraryGridItem(
                 modifier = Modifier.fillMaxWidth(widthFraction - 0.04209f),
                 image = item.image,
@@ -126,38 +126,39 @@ private fun PreviewBody() {
         viewState = viewState.copy(
             isLoading = false,
             data = YourLibraryModel(
-                recent = listOf(
-                    RecentItemModel(
+                title = "Playlist",
+                items = listOf(
+                    YourLibraryItemModel(
                         categoryHierarchy = "playlist * playlist",
                         image = "https://i.scdn.co/image/ab67706f00000002f46ec304be9222df641117a2",
                         title = "Title"
                     ),
-                    RecentItemModel(
+                    YourLibraryItemModel(
                         categoryHierarchy = "playlist * playlist",
                         image = "https://i.scdn.co/image/ab67706f00000002f46ec304be9222df641117a2",
                         title = "Title"
                     ),
-                    RecentItemModel(
+                    YourLibraryItemModel(
                         categoryHierarchy = "playlist * playlist",
                         image = "https://i.scdn.co/image/ab67706f00000002f46ec304be9222df641117a2",
                         title = "Title"
                     ),
-                    RecentItemModel(
+                    YourLibraryItemModel(
                         categoryHierarchy = "playlist * playlist",
                         image = "https://i.scdn.co/image/ab67706f00000002f46ec304be9222df641117a2",
                         title = "Title"
                     ),
-                    RecentItemModel(
+                    YourLibraryItemModel(
                         categoryHierarchy = "playlist * playlist",
                         image = "https://i.scdn.co/image/ab67706f00000002f46ec304be9222df641117a2",
                         title = "Title"
                     ),
-                    RecentItemModel(
+                    YourLibraryItemModel(
                         categoryHierarchy = "playlist * playlist",
                         image = "https://i.scdn.co/image/ab67706f00000002f46ec304be9222df641117a2",
                         title = "Title"
                     ),
-                    RecentItemModel(
+                    YourLibraryItemModel(
                         categoryHierarchy = "playlist * playlist",
                         image = "https://i.scdn.co/image/ab67706f00000002f46ec304be9222df641117a2",
                         title = "Title"

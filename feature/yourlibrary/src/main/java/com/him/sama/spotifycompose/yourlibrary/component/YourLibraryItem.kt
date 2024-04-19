@@ -18,10 +18,10 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import com.him.sama.spotifycompose.common.ui.theme.nautral_50
-import com.him.sama.spotifycompose.yourlibrary.RecentItemModel
+import com.him.sama.spotifycompose.yourlibrary.YourLibraryItemModel
 
 @Composable
-fun YourLibraryItem(item: RecentItemModel) {
+fun YourLibraryItem(item: YourLibraryItemModel) {
     Row(
         modifier = Modifier
             .fillMaxWidth()

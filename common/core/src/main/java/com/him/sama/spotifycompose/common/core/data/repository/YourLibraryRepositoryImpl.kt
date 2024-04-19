@@ -32,17 +32,19 @@ class YourLibraryRepositoryImpl @Inject constructor(
     private val errorMapper: Mapper<Throwable, UserError>
 ) : YourLibraryRepository {
 
-    private val responseToDomainThrows: (YourLibraryResponse) -> YourLibraryDomainModel =
+    private val responseToDomainThrows: (List<YourLibraryResponse>) -> List<YourLibraryDomainModel> =
         { response ->
-            responseToDomain(response).let { validated ->
-                validated.getOrElse {
-                    val t = UserError.NetworkError
-                    throw t
+            response.map {
+                responseToDomain(it).let { validated ->
+                    validated.getOrElse {
+                        val t = UserError.NetworkError
+                        throw t
+                    }
                 }
             }
         }
 
-    private suspend fun getRemoteWithRetry(): YourLibraryDomainModel {
+    private suspend fun getRemoteWithRetry(): List<YourLibraryDomainModel> {
         return withContext(dispatchers.io) {
             retrySuspend(
                 times = 3,
@@ -57,12 +59,12 @@ class YourLibraryRepositoryImpl @Inject constructor(
         }
     }
 
-    override suspend fun fetchYourLibrary(): Flow<Either<UserError, YourLibraryDomainModel>> {
+    override suspend fun fetchYourLibrary(): Flow<Either<UserError, List<YourLibraryDomainModel>>> {
         return flow {
             emit(getRemoteWithRetry())
         }.map {
             val right = it.right()
-            right.leftWiden<UserError, Nothing, YourLibraryDomainModel>()
+            right.leftWiden<UserError, Nothing, List<YourLibraryDomainModel>>()
         }.catch {
             logError(it, "fetchYourLibrary")
             val value: Either<UserError, Nothing> = errorMapper(it).left()

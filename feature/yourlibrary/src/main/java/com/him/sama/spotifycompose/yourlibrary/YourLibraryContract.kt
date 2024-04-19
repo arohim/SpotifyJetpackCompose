@@ -9,11 +9,13 @@ import com.him.sama.spotifycompose.common.core.domain.model.YourLibraryDomainMod
 
 
 data class YourLibraryModel(
-    val recent: List<RecentItemModel> = listOf()
+    val title: String = "",
+    val items: List<YourLibraryItemModel> = listOf()
 ) {
     constructor(data: YourLibraryDomainModel) : this(
-        recent = data.recent.map {
-            RecentItemModel(
+        title = data.title,
+        items = data.items.map {
+            YourLibraryItemModel(
                 categoryHierarchy = it.categoryHierarchy,
                 image = it.image,
                 title = it.title
@@ -22,7 +24,7 @@ data class YourLibraryModel(
     )
 }
 
-data class RecentItemModel(
+data class YourLibraryItemModel(
     val categoryHierarchy: String,
     val image: String,
     val title: String

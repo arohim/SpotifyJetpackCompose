@@ -10,7 +10,7 @@ import javax.inject.Inject
 class GetYourLibraryUseCase @Inject constructor(
     private val yourLibraryRepository: YourLibraryRepository
 ) {
-    suspend operator fun invoke(): Flow<Either<UserError, YourLibraryDomainModel>> {
+    suspend operator fun invoke(): Flow<Either<UserError, List<YourLibraryDomainModel>>> {
         return yourLibraryRepository.fetchYourLibrary()
     }
 }
