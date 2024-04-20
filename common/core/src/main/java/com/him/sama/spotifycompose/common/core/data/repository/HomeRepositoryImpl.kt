@@ -8,6 +8,7 @@ import arrow.core.leftWiden
 import arrow.core.right
 import com.him.sama.spotifycompose.common.core.base.Mapper
 import com.him.sama.spotifycompose.common.core.base.dispatcher.AppCoroutineDispatchers
+import com.him.sama.spotifycompose.common.core.base.retrySuspend
 import com.him.sama.spotifycompose.common.core.data.remote.model.HomeResponseItem
 import com.him.sama.spotifycompose.common.core.data.remote.service.ApiService
 import com.him.sama.spotifycompose.common.core.domain.model.HomeDomainItem
@@ -33,7 +34,7 @@ class HomeRepositoryImpl @Inject constructor(
 
     private val responseToDomainThrows: (HomeResponseItem) -> HomeDomainItem = { response ->
         responseToDomain(response).let { validated ->
-            validated.toEither().getOrElse {
+            validated.getOrElse {
                 val t = UserError.NetworkError
                 throw t
             }
@@ -42,7 +43,7 @@ class HomeRepositoryImpl @Inject constructor(
 
     private suspend fun getHomeDataFromRemoteWithRetry(): List<HomeDomainItem> {
         return withContext(dispatchers.io) {
-            com.him.sama.spotifycompose.common.core.base.retrySuspend(
+            retrySuspend(
                 times = 3,
                 initialDelay = 500.toDuration(DurationUnit.MILLISECONDS),
                 factor = 2.0,
