@@ -39,14 +39,18 @@ sealed interface YourLibraryViewIntent : MviIntent {
 
 @Immutable
 data class YourLibraryViewState(
-    val data: YourLibraryModel = YourLibraryModel(),
+    val data: List<YourLibraryModel> = listOf(),
     val isLoading: Boolean,
     val error: UserError?,
     val isRefreshing: Boolean
 ) : MviViewState {
+
+    val fistPlayList: YourLibraryModel?
+        get() = data.firstOrNull()
+
     companion object {
         fun initial() = YourLibraryViewState(
-            data = YourLibraryModel(),
+            data = listOf(),
             isLoading = true,
             error = null,
             isRefreshing = false
@@ -79,7 +83,7 @@ internal sealed interface PartialStateChange {
         }
 
         data object Loading : YourLibrary
-        data class Data(val data: YourLibraryModel) : YourLibrary
+        data class Data(val data: List<YourLibraryModel>) : YourLibrary
         data class Error(val error: UserError) : YourLibrary
     }
 

@@ -82,7 +82,7 @@ private fun GridView(viewState: YourLibraryViewState) {
         verticalArrangement = Arrangement.spacedBy(24.dp),
         horizontalArrangement = Arrangement.spacedBy(24.dp)
     ) {
-        viewState.data.items.forEachIndexed { i, item ->
+        viewState.fistPlayList?.items?.forEachIndexed { i, item ->
             YourLibraryGridItem(
                 modifier = Modifier.fillMaxWidth(widthFraction - 0.02f),
                 image = item.image,
@@ -99,42 +99,44 @@ private fun PreviewBody() {
         var viewState = YourLibraryViewState.initial()
         viewState = viewState.copy(
             isLoading = false,
-            data = YourLibraryModel(
-                items = listOf(
-                    YourLibraryItemModel(
-                        categoryHierarchy = "playlist * playlist",
-                        image = "https://i.scdn.co/image/ab67706f00000002f46ec304be9222df641117a2",
-                        title = "Title"
-                    ),
-                    YourLibraryItemModel(
-                        categoryHierarchy = "playlist * playlist",
-                        image = "https://i.scdn.co/image/ab67706f00000002f46ec304be9222df641117a2",
-                        title = "Title"
-                    ),
-                    YourLibraryItemModel(
-                        categoryHierarchy = "playlist * playlist",
-                        image = "https://i.scdn.co/image/ab67706f00000002f46ec304be9222df641117a2",
-                        title = "Title"
-                    ),
-                    YourLibraryItemModel(
-                        categoryHierarchy = "playlist * playlist",
-                        image = "https://i.scdn.co/image/ab67706f00000002f46ec304be9222df641117a2",
-                        title = "Title"
-                    ),
-                    YourLibraryItemModel(
-                        categoryHierarchy = "playlist * playlist",
-                        image = "https://i.scdn.co/image/ab67706f00000002f46ec304be9222df641117a2",
-                        title = "Title"
-                    ),
-                    YourLibraryItemModel(
-                        categoryHierarchy = "playlist * playlist",
-                        image = "https://i.scdn.co/image/ab67706f00000002f46ec304be9222df641117a2",
-                        title = "Title"
-                    ),
-                    YourLibraryItemModel(
-                        categoryHierarchy = "playlist * playlist",
-                        image = "https://i.scdn.co/image/ab67706f00000002f46ec304be9222df641117a2",
-                        title = "Title"
+            data = listOf(
+                YourLibraryModel(
+                    items = listOf(
+                        YourLibraryItemModel(
+                            categoryHierarchy = "playlist * playlist",
+                            image = "https://i.scdn.co/image/ab67706f00000002f46ec304be9222df641117a2",
+                            title = "Title"
+                        ),
+                        YourLibraryItemModel(
+                            categoryHierarchy = "playlist * playlist",
+                            image = "https://i.scdn.co/image/ab67706f00000002f46ec304be9222df641117a2",
+                            title = "Title"
+                        ),
+                        YourLibraryItemModel(
+                            categoryHierarchy = "playlist * playlist",
+                            image = "https://i.scdn.co/image/ab67706f00000002f46ec304be9222df641117a2",
+                            title = "Title"
+                        ),
+                        YourLibraryItemModel(
+                            categoryHierarchy = "playlist * playlist",
+                            image = "https://i.scdn.co/image/ab67706f00000002f46ec304be9222df641117a2",
+                            title = "Title"
+                        ),
+                        YourLibraryItemModel(
+                            categoryHierarchy = "playlist * playlist",
+                            image = "https://i.scdn.co/image/ab67706f00000002f46ec304be9222df641117a2",
+                            title = "Title"
+                        ),
+                        YourLibraryItemModel(
+                            categoryHierarchy = "playlist * playlist",
+                            image = "https://i.scdn.co/image/ab67706f00000002f46ec304be9222df641117a2",
+                            title = "Title"
+                        ),
+                        YourLibraryItemModel(
+                            categoryHierarchy = "playlist * playlist",
+                            image = "https://i.scdn.co/image/ab67706f00000002f46ec304be9222df641117a2",
+                            title = "Title"
+                        )
                     )
                 )
             )

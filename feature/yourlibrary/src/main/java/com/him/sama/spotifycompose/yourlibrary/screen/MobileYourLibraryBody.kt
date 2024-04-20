@@ -86,7 +86,7 @@ fun MobileYourLibraryBody(windowSize: WindowSize, viewState: YourLibraryViewStat
                         GridView(viewState)
                     }
                 } else {
-                    items(viewState.data.items, itemContent = {
+                    items(viewState.fistPlayList?.items ?: listOf(), itemContent = {
                         YourLibraryItem(it)
                         Spacer(modifier = Modifier.height(16.dp))
                     })
@@ -107,7 +107,7 @@ private fun GridView(viewState: YourLibraryViewState) {
         verticalArrangement = Arrangement.spacedBy(24.dp),
         horizontalArrangement = Arrangement.spacedBy(24.dp)
     ) {
-        viewState.data.items.forEachIndexed { i, item ->
+        viewState.fistPlayList?.items?.forEachIndexed { i, item ->
             YourLibraryGridItem(
                 modifier = Modifier.fillMaxWidth(widthFraction - 0.04209f),
                 image = item.image,
@@ -125,43 +125,45 @@ private fun PreviewBody() {
         var viewState = YourLibraryViewState.initial()
         viewState = viewState.copy(
             isLoading = false,
-            data = YourLibraryModel(
-                title = "Playlist",
-                items = listOf(
-                    YourLibraryItemModel(
-                        categoryHierarchy = "playlist * playlist",
-                        image = "https://i.scdn.co/image/ab67706f00000002f46ec304be9222df641117a2",
-                        title = "Title"
-                    ),
-                    YourLibraryItemModel(
-                        categoryHierarchy = "playlist * playlist",
-                        image = "https://i.scdn.co/image/ab67706f00000002f46ec304be9222df641117a2",
-                        title = "Title"
-                    ),
-                    YourLibraryItemModel(
-                        categoryHierarchy = "playlist * playlist",
-                        image = "https://i.scdn.co/image/ab67706f00000002f46ec304be9222df641117a2",
-                        title = "Title"
-                    ),
-                    YourLibraryItemModel(
-                        categoryHierarchy = "playlist * playlist",
-                        image = "https://i.scdn.co/image/ab67706f00000002f46ec304be9222df641117a2",
-                        title = "Title"
-                    ),
-                    YourLibraryItemModel(
-                        categoryHierarchy = "playlist * playlist",
-                        image = "https://i.scdn.co/image/ab67706f00000002f46ec304be9222df641117a2",
-                        title = "Title"
-                    ),
-                    YourLibraryItemModel(
-                        categoryHierarchy = "playlist * playlist",
-                        image = "https://i.scdn.co/image/ab67706f00000002f46ec304be9222df641117a2",
-                        title = "Title"
-                    ),
-                    YourLibraryItemModel(
-                        categoryHierarchy = "playlist * playlist",
-                        image = "https://i.scdn.co/image/ab67706f00000002f46ec304be9222df641117a2",
-                        title = "Title"
+            data = listOf(
+                YourLibraryModel(
+                    title = "Playlist",
+                    items = listOf(
+                        YourLibraryItemModel(
+                            categoryHierarchy = "playlist * playlist",
+                            image = "https://i.scdn.co/image/ab67706f00000002f46ec304be9222df641117a2",
+                            title = "Title"
+                        ),
+                        YourLibraryItemModel(
+                            categoryHierarchy = "playlist * playlist",
+                            image = "https://i.scdn.co/image/ab67706f00000002f46ec304be9222df641117a2",
+                            title = "Title"
+                        ),
+                        YourLibraryItemModel(
+                            categoryHierarchy = "playlist * playlist",
+                            image = "https://i.scdn.co/image/ab67706f00000002f46ec304be9222df641117a2",
+                            title = "Title"
+                        ),
+                        YourLibraryItemModel(
+                            categoryHierarchy = "playlist * playlist",
+                            image = "https://i.scdn.co/image/ab67706f00000002f46ec304be9222df641117a2",
+                            title = "Title"
+                        ),
+                        YourLibraryItemModel(
+                            categoryHierarchy = "playlist * playlist",
+                            image = "https://i.scdn.co/image/ab67706f00000002f46ec304be9222df641117a2",
+                            title = "Title"
+                        ),
+                        YourLibraryItemModel(
+                            categoryHierarchy = "playlist * playlist",
+                            image = "https://i.scdn.co/image/ab67706f00000002f46ec304be9222df641117a2",
+                            title = "Title"
+                        ),
+                        YourLibraryItemModel(
+                            categoryHierarchy = "playlist * playlist",
+                            image = "https://i.scdn.co/image/ab67706f00000002f46ec304be9222df641117a2",
+                            title = "Title"
+                        )
                     )
                 )
             )

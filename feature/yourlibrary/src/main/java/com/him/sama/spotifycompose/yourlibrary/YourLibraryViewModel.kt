@@ -79,8 +79,7 @@ class YourLibraryViewModel @Inject constructor(
                 result.fold(
                     ifLeft = { YourLibrary.Error(it) },
                     ifRight = { list ->
-                        val playList = list.first()
-                        Data(YourLibraryModel(playList))
+                        Data(list.map { YourLibraryModel(it) })
                     }
                 )
             }
