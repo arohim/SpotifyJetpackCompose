@@ -1,6 +1,7 @@
 package com.him.sama.spotifycompose.common.core.data.mapper
 
-import arrow.core.EitherNel
+import arrow.core.Either
+import arrow.core.NonEmptyList
 import arrow.core.getOrElse
 import com.him.sama.spotifycompose.common.core.base.Mapper
 import com.him.sama.spotifycompose.common.core.data.remote.model.HomeResponseItem
@@ -10,9 +11,9 @@ import com.him.sama.spotifycompose.common.core.domain.model.HomeDomainLayoutType
 import javax.inject.Inject
 
 class HomeResponseToHomeDomainMapper @Inject constructor() :
-    Mapper<HomeResponseItem, EitherNel<Nothing, HomeDomainItem>> {
+    Mapper<HomeResponseItem, Either<NonEmptyList<Void>, HomeDomainItem>> {
 
-    override fun invoke(param: HomeResponseItem): EitherNel<Nothing, HomeDomainItem> {
+    override fun invoke(param: HomeResponseItem): Either<NonEmptyList<Void>, HomeDomainItem> {
         return HomeDomainItem.create(
             layoutType = HomeDomainLayoutType.valueOf(param.layoutType.name),
             title = param.title,

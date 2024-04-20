@@ -1,14 +1,13 @@
 package com.him.sama.spotifycompose.common.core.data.repository
 
 import arrow.core.Either
+import arrow.core.NonEmptyList
 import arrow.core.getOrElse
 import arrow.core.left
 import arrow.core.leftWiden
 import arrow.core.right
 import com.him.sama.spotifycompose.common.core.base.Mapper
 import com.him.sama.spotifycompose.common.core.base.dispatcher.AppCoroutineDispatchers
-import com.him.sama.spotifycompose.common.core.base.retrySuspend
-import com.him.sama.spotifycompose.common.core.data.mapper.HomeResponseToHomeDomainMapper
 import com.him.sama.spotifycompose.common.core.data.remote.model.HomeResponseItem
 import com.him.sama.spotifycompose.common.core.data.remote.service.ApiService
 import com.him.sama.spotifycompose.common.core.domain.model.HomeDomainItem
@@ -28,7 +27,7 @@ import kotlin.time.toDuration
 class HomeRepositoryImpl @Inject constructor(
     private val apiService: ApiService,
     private val dispatchers: AppCoroutineDispatchers,
-    private val responseToDomain: HomeResponseToHomeDomainMapper,
+    private val responseToDomain: Mapper<HomeResponseItem, Either<NonEmptyList<Void>, HomeDomainItem>>,
     private val errorMapper: Mapper<Throwable, UserError>
 ) : HomeRepository {
 
@@ -43,7 +42,7 @@ class HomeRepositoryImpl @Inject constructor(
 
     private suspend fun getHomeDataFromRemoteWithRetry(): List<HomeDomainItem> {
         return withContext(dispatchers.io) {
-            retrySuspend(
+            com.him.sama.spotifycompose.common.core.base.retrySuspend(
                 times = 3,
                 initialDelay = 500.toDuration(DurationUnit.MILLISECONDS),
                 factor = 2.0,

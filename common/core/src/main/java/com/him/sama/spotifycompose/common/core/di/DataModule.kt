@@ -1,6 +1,8 @@
 package com.him.sama.spotifycompose.common.core.di
 
+import arrow.core.Either
 import arrow.core.EitherNel
+import arrow.core.NonEmptyList
 import com.him.sama.spotifycompose.common.core.base.Mapper
 import com.him.sama.spotifycompose.common.core.data.mapper.HomeResponseToHomeDomainMapper
 import com.him.sama.spotifycompose.common.core.data.mapper.NetworkErrorMapper
@@ -40,7 +42,7 @@ internal abstract class DataModule {
 
     @Binds
     @Singleton
-    abstract fun homeModelMapper(impl: HomeResponseToHomeDomainMapper): Mapper<HomeResponseItem, EitherNel<Nothing, HomeDomainItem>>
+    abstract fun homeModelMapper(impl: HomeResponseToHomeDomainMapper): Mapper<HomeResponseItem, Either<NonEmptyList<Void>, HomeDomainItem>>
 
     @Binds
     @Singleton
