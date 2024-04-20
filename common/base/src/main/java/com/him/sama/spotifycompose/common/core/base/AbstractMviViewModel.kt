@@ -5,7 +5,7 @@ import androidx.annotation.CallSuper
 import androidx.annotation.MainThread
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.him.sama.spotifycompose.common.core.BuildConfig
+import com.him.sama.spotifycompose.common.base.BuildConfig
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.channels.onFailure
 import kotlinx.coroutines.channels.onSuccess

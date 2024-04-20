@@ -79,8 +79,9 @@ jjwt-api = "io.jsonwebtoken:jjwt-api:0.10.7"
 jjwt-orgjson = "io.jsonwebtoken:jjwt-orgjson:0.10.7"
 junit = "junit:junit:4.13.2"
 androidx-espresso-core = "androidx.test.espresso:espresso-core:3.5.1"
-mockk = "io.mockk:mockk:1.13.7"
-kotlinx-coroutines-test = "org.jetbrains.kotlinx:kotlinx-coroutines-test:1.7.1"
+mockk = "io.mockk:mockk:1.13.10"
+kotlin-junit = { module = "org.jetbrains.kotlin:kotlin-test-junit", version.ref = "kotlin-version" }
+kotlinx-coroutines-test = "org.jetbrains.kotlinx:kotlinx-coroutines-test:1.7.2"
 
 datastore = "androidx.datastore:datastore-preferences:1.0.0"
 retrofit2 = "com.squareup.retrofit2:retrofit:2.9.0"

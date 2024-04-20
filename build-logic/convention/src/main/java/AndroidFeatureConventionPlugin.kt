@@ -23,6 +23,7 @@ class AndroidFeatureConventionPlugin : Plugin<Project> {
             val libs = extensions.getByType<VersionCatalogsExtension>().named("libs")
 
             dependencies {
+                add("implementation", project(":common:base"))
                 add("implementation", project(":common:core"))
                 add("implementation", project(":common:ui"))
 

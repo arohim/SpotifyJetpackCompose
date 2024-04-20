@@ -16,7 +16,9 @@ dependencyResolutionManagement {
 
 rootProject.name = "SpotifyJetpackCompose"
 include(":app")
+include(":common:base")
 include(":common:core")
+include(":common:test_util")
 include(":common:ui")
 include(":feature:home")
 include(":feature:search")
