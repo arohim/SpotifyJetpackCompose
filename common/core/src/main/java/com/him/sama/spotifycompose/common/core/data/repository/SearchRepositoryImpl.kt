@@ -2,6 +2,7 @@ package com.him.sama.spotifycompose.common.core.data.repository
 
 import arrow.core.Either
 import arrow.core.EitherNel
+import arrow.core.NonEmptyList
 import arrow.core.getOrElse
 import arrow.core.left
 import arrow.core.leftWiden
@@ -29,7 +30,7 @@ import kotlin.time.toDuration
 class SearchRepositoryImpl @Inject constructor(
     private val apiService: ApiService,
     private val dispatchers: AppCoroutineDispatchers,
-    private val responseToDomain: SearchPageResponseToSearchPageDomainMapper,
+    private val responseToDomain: Mapper<SearchPageResponse, Either<NonEmptyList<Void>, SearchPageDomainModel>>,
     private val errorMapper: Mapper<Throwable, UserError>
 ) : SearchRepository {
 

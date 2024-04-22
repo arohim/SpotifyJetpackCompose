@@ -51,7 +51,7 @@ class HomeRepositoryImplTest {
 
         homeRepository = HomeRepositoryImpl(
             apiService,
-            TestDispatchers(coroutineRule.testCoroutineDispatcher),
+            TestDispatchers(testDispatcher),
             responseToDomain,
             errorMapper
         )
