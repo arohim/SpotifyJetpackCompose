@@ -6,7 +6,7 @@ import arrow.core.left
 import arrow.core.right
 import com.him.sama.spotifycompose.common.core.base.Mapper
 import com.him.sama.spotifycompose.common.core.base.dispatcher.AppCoroutineDispatchers
-import com.him.sama.spotifycompose.common.core.data.remote.model.CategoriesItem
+import com.him.sama.spotifycompose.common.core.data.remote.model.CategoryItem
 import com.him.sama.spotifycompose.common.core.data.remote.model.SearchPageResponse
 import com.him.sama.spotifycompose.common.core.data.remote.model.StoryItem
 import com.him.sama.spotifycompose.common.core.data.remote.service.ApiService
@@ -74,7 +74,7 @@ class SearchRepositoryImplTest {
         )
         val response = SearchPageResponse(
             categories = listOf(
-                CategoriesItem(bgColor = "bgColor", image = "image", title = "title")
+                CategoryItem(bgColor = "bgColor", image = "image", title = "title")
             ),
             story = listOf(
                 StoryItem(image = "image", title = "title")

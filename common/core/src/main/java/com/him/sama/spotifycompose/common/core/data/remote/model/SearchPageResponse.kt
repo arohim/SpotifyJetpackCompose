@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName
 data class SearchPageResponse(
 
     @field:SerializedName("categories")
-    val categories: List<CategoriesItem> = listOf(),
+    val categories: List<CategoryItem> = listOf(),
 
     @field:SerializedName("story")
     val story: List<StoryItem> = listOf()
@@ -20,7 +20,7 @@ data class StoryItem(
     val title: String
 )
 
-data class CategoriesItem(
+data class CategoryItem(
 
     @field:SerializedName("bg_color")
     val bgColor: String,
