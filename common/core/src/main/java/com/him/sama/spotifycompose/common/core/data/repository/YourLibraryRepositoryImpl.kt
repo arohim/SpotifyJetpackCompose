@@ -1,6 +1,7 @@
 package com.him.sama.spotifycompose.common.core.data.repository
 
 import arrow.core.Either
+import arrow.core.NonEmptyList
 import arrow.core.getOrElse
 import arrow.core.left
 import arrow.core.leftWiden
@@ -28,7 +29,7 @@ import kotlin.time.toDuration
 class YourLibraryRepositoryImpl @Inject constructor(
     private val apiService: ApiService,
     private val dispatchers: AppCoroutineDispatchers,
-    private val responseToDomain: YourLibraryPageResponseToYourLibraryPageDomainMapper,
+    private val responseToDomain: Mapper<YourLibraryResponse, Either<NonEmptyList<Void>, YourLibraryDomainModel>>,
     private val errorMapper: Mapper<Throwable, UserError>
 ) : YourLibraryRepository {
 

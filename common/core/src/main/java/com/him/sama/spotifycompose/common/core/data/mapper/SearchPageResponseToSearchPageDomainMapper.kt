@@ -1,6 +1,8 @@
 package com.him.sama.spotifycompose.common.core.data.mapper
 
+import arrow.core.Either
 import arrow.core.EitherNel
+import arrow.core.NonEmptyList
 import arrow.core.getOrElse
 import com.him.sama.spotifycompose.common.core.base.Mapper
 import com.him.sama.spotifycompose.common.core.data.remote.model.SearchPageResponse
@@ -10,7 +12,7 @@ import com.him.sama.spotifycompose.common.core.domain.model.StoryItemDomainModel
 import javax.inject.Inject
 
 class SearchPageResponseToSearchPageDomainMapper @Inject constructor() :
-    Mapper<SearchPageResponse, EitherNel<Nothing, SearchPageDomainModel>> {
+    Mapper<SearchPageResponse, Either<NonEmptyList<Void>, SearchPageDomainModel>> {
 
     override fun invoke(param: SearchPageResponse): EitherNel<Nothing, SearchPageDomainModel> {
         return SearchPageDomainModel.create(
