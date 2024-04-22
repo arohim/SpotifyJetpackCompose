@@ -6,9 +6,13 @@ import arrow.core.left
 import arrow.core.right
 import com.him.sama.spotifycompose.common.core.base.Mapper
 import com.him.sama.spotifycompose.common.core.base.dispatcher.AppCoroutineDispatchers
+import com.him.sama.spotifycompose.common.core.data.remote.model.CategoriesItem
 import com.him.sama.spotifycompose.common.core.data.remote.model.SearchPageResponse
+import com.him.sama.spotifycompose.common.core.data.remote.model.StoryItem
 import com.him.sama.spotifycompose.common.core.data.remote.service.ApiService
+import com.him.sama.spotifycompose.common.core.domain.model.CategoryDomainModel
 import com.him.sama.spotifycompose.common.core.domain.model.SearchPageDomainModel
+import com.him.sama.spotifycompose.common.core.domain.model.StoryItemDomainModel
 import com.him.sama.spotifycompose.common.core.domain.model.UserError
 import com.him.sama.testutil.TestCoroutineDispatcherRule
 import com.him.sama.testutil.TestDispatchers
@@ -60,8 +64,22 @@ class SearchRepositoryImplTest {
     @Test
     fun `fetchSearchPage success`() = runTest {
         // Given
-        val expectedDomainModel = mockk<SearchPageDomainModel>()
-        val response = mockk<SearchPageResponse>()
+        val expectedDomainModel = SearchPageDomainModel(
+            categories = listOf(
+                CategoryDomainModel(bgColor = "bgColor", image = "image", title = "title")
+            ),
+            story = listOf(
+                StoryItemDomainModel(image = "image", title = "title")
+            )
+        )
+        val response = SearchPageResponse(
+            categories = listOf(
+                CategoriesItem(bgColor = "bgColor", image = "image", title = "title")
+            ),
+            story = listOf(
+                StoryItem(image = "image", title = "title")
+            )
+        )
 
         coEvery { apiService.getSearch() } returns response
         coEvery { responseToDomain(response) } returns expectedDomainModel.right()
