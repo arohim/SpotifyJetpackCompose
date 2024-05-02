@@ -15,7 +15,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
@@ -35,10 +34,10 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import coil.compose.AsyncImage
+import com.him.sama.spotifycompose.common.musicplayer.TvMusicPlayer
 import com.him.sama.spotifycompose.common.ui.preview.TelevisionPreview
 import com.him.sama.spotifycompose.common.ui.theme.AppTheme
 import com.him.sama.spotifycompose.common.ui.theme.background_color
-import com.him.sama.spotifycompose.common.ui.theme.unselected_color
 import com.him.sama.spotifycompose.navigation.AppNavHost
 import com.him.sama.spotifycompose.navigation.BottomBar
 
@@ -85,7 +84,7 @@ fun TVTopMenu(
             .fillMaxWidth()
             .padding(horizontal = 48.dp)
     ) {
-        PlayingTopItem(modifier = Modifier.align(Alignment.CenterStart))
+        TvMusicPlayer(modifier = Modifier.align(Alignment.CenterStart))
         MainMenu(
             modifier = Modifier.align(Alignment.Center),
             selectedDestination = selectedDestination,
@@ -191,44 +190,6 @@ private fun MenuItem(bottomBar: BottomBar, isSelected: Boolean, onClick: () -> U
             style = MaterialTheme.typography.labelSmall,
             color = color
         )
-    }
-}
-
-@Composable
-private fun PlayingTopItem(modifier: Modifier) {
-    Row(
-        modifier = modifier
-            .height(48.dp)
-            .width(200.dp)
-            .background(
-                color = Color(0xff232323),
-                shape = RoundedCornerShape(4.dp)
-            )
-            .clip(shape = RoundedCornerShape(4.dp))
-            .padding(end = 16.dp),
-        verticalAlignment = Alignment.CenterVertically
-    ) {
-        Box(
-            modifier = Modifier
-                .fillMaxHeight()
-                .width(48.dp)
-                .background(color = Color.LightGray)
-        )
-        Spacer(modifier = Modifier.width(8.dp))
-        Column(
-            modifier = Modifier,
-        ) {
-            Text(
-                text = "Running test",
-                style = MaterialTheme.typography.bodySmall,
-                color = Color.White
-            )
-            Text(
-                text = "Running test",
-                style = MaterialTheme.typography.labelSmall,
-                color = unselected_color
-            )
-        }
     }
 }
 

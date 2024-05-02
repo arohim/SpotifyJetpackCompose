@@ -16,12 +16,11 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.him.sama.spotifycompose.BottomNavigation
-import com.him.sama.spotifycompose.common.component.MobileMusicPlayer
+import com.him.sama.spotifycompose.common.musicplayer.MobileMusicPlayer
 import com.him.sama.spotifycompose.common.state.WindowSize
 import com.him.sama.spotifycompose.common.state.WindowType
 import com.him.sama.spotifycompose.common.state.rememberWindowSize
 import com.him.sama.spotifycompose.common.ui.preview.MobilePreview
-import com.him.sama.spotifycompose.common.ui.preview.TelevisionPreview
 import com.him.sama.spotifycompose.common.ui.theme.AppTheme
 import com.him.sama.spotifycompose.navigation.AppNavHost
 import com.him.sama.spotifycompose.navigation.BottomBar

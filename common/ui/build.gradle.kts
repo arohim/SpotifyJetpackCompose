@@ -1,5 +1,6 @@
 plugins {
     id("spotifycompose.android.library")
+    id("spotifycompose.android.hilt")
     id("com.google.devtools.ksp")
     id("spotifycompose.android.library.compose")
 }
@@ -9,6 +10,8 @@ android {
 }
 
 dependencies {
+    implementation(project(":common:core"))
+    implementation(project(":common:base"))
     api(libs.androidx.core.ktx)
     api(libs.androidx.lifecycle.runtime.ktx)
     api(libs.androidx.navigation.compose)
