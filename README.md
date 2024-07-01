@@ -3,6 +3,9 @@
   <a href="https://android-arsenal.com/api?level=28"><img alt="API" src="https://img.shields.io/badge/API-28%2B-brightgreen.svg?style=flat"/></a>
 </p>
 
+## 
+This project is a project that I used to sharpening and learning my skills.
+
 ## [In progress] Spotify clone using Jetpack Compose (Mobile, Tablet, Television)
 
 This is Spotify clone built with jetpack compose supporting multiple screen size mobile, tablet and
